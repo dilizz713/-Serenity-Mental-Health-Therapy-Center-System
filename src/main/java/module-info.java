@@ -9,7 +9,11 @@ module lk.ijse.gdse71.serenitymentalhealththerapycentersystem {
     requires jakarta.persistence;
     requires java.naming;
 
-    opens lk.ijse.gdse71.serenitymentalhealththerapycentersystem to javafx.fxml;
+    opens lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity to org.hibernate.orm.core;
+    opens lk.ijse.gdse71.serenitymentalhealththerapycentersystem.config to jakarta.persistence;
+
+    opens lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.tm to javafx.base;
+    opens lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller to javafx.fxml;
     exports lk.ijse.gdse71.serenitymentalhealththerapycentersystem;
 
 }
