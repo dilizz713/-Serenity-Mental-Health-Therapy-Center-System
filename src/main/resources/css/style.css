@@ -94,8 +94,20 @@
     -fx-font-weight: bold;
     -fx-cursor: hand;
 }
+
+#btnBack{
+    -fx-background-color: transparent;
+    -fx-text-fill:  black;
+    -fx-font-family: "Arial Bold";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
 #btnForgetPw:hover{
     -fx-text-fill:  red;
+}
+#btnBack:hover{
+    -fx-text-fill:  darkgreen;
 }
 
 #btnNext:hover,#btnShowPw:hover,#btnSignup:hover,#btnLogin:hover{
@@ -120,4 +132,5 @@
     -fx-padding: 5 10 5 10;
 
 }
+
 

@@ -2,14 +2,17 @@ package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+
 public class SignupController {
+
+    @FXML
+    private Button btnBack;
 
     @FXML
     private Button btnSignup;
@@ -66,6 +69,11 @@ public class SignupController {
     private TextField txtUserName;
 
     @FXML
+    void backBtnOnAction(ActionEvent event) {
+        navigateTo("/view/login-page.fxml");
+    }
+
+    @FXML
     void selectAdmin(ActionEvent event) {
 
     }
@@ -78,6 +86,17 @@ public class SignupController {
     @FXML
     void signupOnAction(ActionEvent event) {
 
+    }
+
+    public void navigateTo(String fxmlPath) {
+        try {
+            signupAnchorPane.getChildren().clear();
+            AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
+            signupAnchorPane.getChildren().add(load);
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load page!").show();
+        }
     }
 
 }
