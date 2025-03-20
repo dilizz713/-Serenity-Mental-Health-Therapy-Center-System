@@ -7,6 +7,10 @@
     -fx-background-color: linear-gradient(#77ff77, #87ea59, #a8ff94);
 }
 
+#forgetPwFirstPageAnchorPane,#changePasswordAnchorPane{
+    -fx-background-color: #a8ff94;
+}
+
 #loginVBox,#signupPageVBox{
     -fx-background-radius: 5;
     -fx-border-radius: 5;
@@ -26,7 +30,7 @@
     -fx-font-size: 25px;
     -fx-font-weight: bold;
 }
-#lblUserName,#lblPassword,#lblFName,#lblLName,#lblUserName,#lblEmail,#lblPassword,#lblConfirmPW{
+#lblUserName,#lblPassword,#lblFName,#lblLName,#lblUserName,#lblEmail,#lblPassword,#lblConfirmPW,#lblNewPw,#lblConfirmPW{
     -fx-font-family: "sans-serif";
     -fx-font-size: 16px;
 }
@@ -54,6 +58,21 @@
     -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+    -fx-border-color:  black; /* Optional red border for emphasis */
+    -fx-border-width: 0px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 2, 0, 2, 2);
+    -fx-transition: all 0.3s ease;
+}
+#nextBtn,#btnChangePW{
+    -fx-background-color: green;
+    -fx-text-fill:  white;
+    -fx-font-family: "Arial Bold";
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10 5 10;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
     -fx-cursor: hand;
     -fx-border-color:  black; /* Optional red border for emphasis */
     -fx-border-width: 0px;

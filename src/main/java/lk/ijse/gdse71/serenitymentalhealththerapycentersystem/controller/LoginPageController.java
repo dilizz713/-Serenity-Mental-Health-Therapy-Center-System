@@ -65,7 +65,7 @@ public class LoginPageController {
 
     @FXML
     void forgetPwOnAction(ActionEvent event) {
-
+        navigateTo("/view/forget-password.fxml");
     }
 
     public void navigateTo(String fxmlPath) {
