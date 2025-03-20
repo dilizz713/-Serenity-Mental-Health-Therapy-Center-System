@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="loginPageAnchorPane" prefHeight="650.0" prefWidth="950.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller.LoginPageController">
    <children>
       <VBox fx:id="loginVBox" alignment="TOP_CENTER" layoutX="225.0" layoutY="76.0" prefHeight="497.0" prefWidth="524.0" AnchorPane.bottomAnchor="76.39999999999998" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="201.20000000000005" AnchorPane.topAnchor="76.39999999999998">
@@ -53,22 +52,22 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="524.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="518.0">
                <children>
-                  <Label fx:id="lblQuestion" prefHeight="16.0" prefWidth="382.0" text="Don't you Signup yet?">
+                  <Button fx:id="btnForgetPw" mnemonicParsing="false" onAction="#forgetPwOnAction" prefHeight="30.0" prefWidth="138.0" text="Forget Password?">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
-                  </Label>
-                  <Button fx:id="btnSignup" mnemonicParsing="false" onAction="#BtnSignupOnAction" prefHeight="26.0" prefWidth="92.0" text="Signup" />
+                  </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="89.0" prefWidth="518.0">
                <children>
                   <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="26.0" prefWidth="92.0" text="Login" />
                </children>
             </HBox>
          </children>
       </VBox>
+      <Button fx:id="btnSignup" layoutX="790.0" layoutY="25.0" mnemonicParsing="false" onAction="#BtnSignupOnAction" prefHeight="26.0" prefWidth="92.0" text="Signup" />
    </children>
 </AnchorPane>

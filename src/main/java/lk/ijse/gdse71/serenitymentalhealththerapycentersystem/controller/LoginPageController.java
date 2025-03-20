@@ -2,15 +2,18 @@ package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
+
 public class LoginPageController {
+
+    @FXML
+    private Button btnForgetPw;
 
     @FXML
     private Button btnLogin;
@@ -26,9 +29,6 @@ public class LoginPageController {
 
     @FXML
     private Label lblPassword;
-
-    @FXML
-    private Label lblQuestion;
 
     @FXML
     private Label lblShown;
@@ -50,7 +50,7 @@ public class LoginPageController {
 
     @FXML
     void BtnSignupOnAction(ActionEvent event) {
-
+        navigateTo("/view/signup-page.fxml");
     }
 
     @FXML
@@ -61,6 +61,22 @@ public class LoginPageController {
     @FXML
     void clickBtnShowPassword(ActionEvent event) {
 
+    }
+
+    @FXML
+    void forgetPwOnAction(ActionEvent event) {
+
+    }
+
+    public void navigateTo(String fxmlPath) {
+        try {
+            loginPageAnchorPane.getChildren().clear();
+            AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
+            loginPageAnchorPane.getChildren().add(load);
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load page!").show();
+        }
     }
 
 }
