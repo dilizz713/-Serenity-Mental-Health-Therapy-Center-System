@@ -16,12 +16,12 @@
          <children>
             <HBox alignment="CENTER" prefHeight="66.0" prefWidth="524.0">
                <children>
-                  <Text fx:id="lblLoginPageTopic" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
+                  <Text fx:id="lblLoginPageTopic" fill="#55c968" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="524.0">
                <children>
-                  <Label fx:id="lblUserName" prefHeight="18.0" prefWidth="181.0" text="User Name">
+                  <Label fx:id="lblUserName" prefHeight="18.0" prefWidth="181.0" text="User Name" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -31,7 +31,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="76.0" prefHeight="82.0" prefWidth="524.0">
                <children>
-                  <Label fx:id="lblPassword" prefHeight="18.0" prefWidth="181.0" text="Password">
+                  <Label fx:id="lblPassword" prefHeight="18.0" prefWidth="181.0" text="Password" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -44,8 +44,8 @@
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="75.0" prefWidth="524.0">
                <children>
-                  <Label fx:id="lblShown" prefHeight="18.0" prefWidth="201.0" text="shown" />
-                  <Button fx:id="btnShowPw" mnemonicParsing="false" onAction="#clickBtnShowPassword" prefHeight="26.0" prefWidth="92.0" text="Show">
+                  <Label fx:id="lblShown" prefHeight="18.0" prefWidth="201.0" text="shown" textFill="WHITE" />
+                  <Button fx:id="btnShowPw" mnemonicParsing="false" onAction="#clickBtnShowPassword" prefHeight="26.0" prefWidth="92.0" text="Show" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="25.0" />
                      </HBox.margin>

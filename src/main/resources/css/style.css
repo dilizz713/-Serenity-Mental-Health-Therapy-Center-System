@@ -4,11 +4,11 @@
     box-sizing: border-box;
 }
 #firstPageAnchorPane,#loginPageAnchorPane,#signupAnchorPane{
-    -fx-background-color: linear-gradient(#77ff77, #87ea59, #a8ff94);
+    -fx-background-color: #1A1A1A;
 }
 
 #forgetPwFirstPageAnchorPane,#changePasswordAnchorPane{
-    -fx-background-color: #a8ff94;
+    -fx-background-color: whitesmoke;
 }
 
 #loginVBox,#signupPageVBox{
@@ -24,6 +24,8 @@
     -fx-font-size: 35px;
     -fx-font-weight: bold;
     -fx-padding: 10 20 10 20;
+    -fx-text-fill:  white;
+
 }
 #lblLoginPageTopic,#lblTopicSignup{
     -fx-font-family: "serif";
@@ -83,7 +85,7 @@
     -fx-background-color: transparent;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
-    -fx-text-fill:  black;
+    -fx-text-fill:  white;
     -fx-font-family: "serif";
     -fx-font-size: 16px;
     -fx-font-weight: bold;
@@ -107,7 +109,7 @@
 }
 #btnForgetPw{
     -fx-background-color: transparent;
-    -fx-text-fill:  darkred;
+    -fx-text-fill:  red;
     -fx-font-family: "Arial Bold";
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -116,21 +118,21 @@
 
 #btnBack{
     -fx-background-color: transparent;
-    -fx-text-fill:  black;
+    -fx-text-fill:  white;
     -fx-font-family: "Arial Bold";
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-cursor: hand;
 }
 #btnForgetPw:hover{
-    -fx-text-fill:  red;
+    -fx-text-fill:  green;
 }
 #btnBack:hover{
     -fx-text-fill:  darkgreen;
 }
 
 #btnNext:hover,#btnShowPw:hover,#btnSignup:hover,#btnLogin:hover{
-    -fx-background-color:  #87ea59;
+    -fx-background-color:  white;
     -fx-text-fill: darkgreen;
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
@@ -145,7 +147,7 @@
 
 #radioBtnAdmin,#rdBtnReceptionist{
     -fx-background-color: transparent;
-    -fx-text-fill:  black;
+    -fx-text-fill:  white;
     -fx-font-family: "Arial Bold";
     -fx-font-size: 15px;
     -fx-padding: 5 10 5 10;

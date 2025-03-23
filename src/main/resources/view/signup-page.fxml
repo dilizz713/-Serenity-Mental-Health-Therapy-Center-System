@@ -9,19 +9,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane fx:id="signupAnchorPane" prefHeight="650.0" prefWidth="950.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller.SignupController">
    <children>
       <VBox fx:id="signupPageVBox" layoutX="220.0" layoutY="14.0" prefHeight="626.0" prefWidth="522.0">
          <children>
             <HBox alignment="CENTER" prefHeight="70.0" prefWidth="522.0">
                <children>
-                  <Label fx:id="lblTopicSignup" text="Signup" />
+                  <Label fx:id="lblTopicSignup" text="Signup" textFill="#4cd162" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="522.0">
                <children>
-                  <Label fx:id="lblFName" prefHeight="18.0" prefWidth="206.0" text="First Name">
+                  <Label fx:id="lblFName" prefHeight="18.0" prefWidth="206.0" text="First Name" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -31,7 +30,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0" prefHeight="71.0" prefWidth="522.0">
                <children>
-                  <Label fx:id="lblLName" prefHeight="18.0" prefWidth="206.0" text="Last Name">
+                  <Label fx:id="lblLName" prefHeight="18.0" prefWidth="206.0" text="Last Name" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -41,7 +40,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="152.0" prefHeight="71.0" prefWidth="522.0">
                <children>
-                  <Label fx:id="lblUserName" prefHeight="18.0" prefWidth="206.0" text="User Name">
+                  <Label fx:id="lblUserName" prefHeight="18.0" prefWidth="206.0" text="User Name" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -51,7 +50,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="223.0" prefHeight="71.0" prefWidth="522.0">
                <children>
-                  <Label fx:id="lblEmail" prefHeight="18.0" prefWidth="206.0" text="Email">
+                  <Label fx:id="lblEmail" prefHeight="18.0" prefWidth="206.0" text="Email" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -61,7 +60,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="294.0" prefHeight="71.0" prefWidth="522.0">
                <children>
-                  <Label fx:id="lblPassword" prefHeight="18.0" prefWidth="206.0" text="Password">
+                  <Label fx:id="lblPassword" prefHeight="18.0" prefWidth="206.0" text="Password" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -71,7 +70,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="365.0" prefHeight="71.0" prefWidth="522.0">
                <children>
-                  <Label fx:id="lblConfirmPW" prefHeight="18.0" prefWidth="206.0" text="Confirm Password">
+                  <Label fx:id="lblConfirmPW" prefHeight="18.0" prefWidth="206.0" text="Confirm Password" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
@@ -81,7 +80,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="522.0">
                <children>
-                  <RadioButton fx:id="radioBtnAdmin" mnemonicParsing="false" onAction="#selectAdmin" prefHeight="31.0" prefWidth="137.0" text="Admin">
+                  <RadioButton fx:id="radioBtnAdmin" mnemonicParsing="false" onAction="#selectAdmin" prefHeight="31.0" prefWidth="137.0" text="Admin" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
