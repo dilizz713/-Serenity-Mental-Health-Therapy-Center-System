@@ -107,7 +107,7 @@
                   </RadioButton>
                </children>
             </HBox>
-            <TableView fx:id="patientTable" prefHeight="392.0" prefWidth="1280.0">
+            <TableView fx:id="patientTable" onMouseClicked="#clickedTable" prefHeight="392.0" prefWidth="1280.0">
                <columns>
                   <TableColumn fx:id="colPatientId" prefWidth="120.7999849319458" text="Patient Id" />
                   <TableColumn fx:id="colPatientName" prefWidth="234.40000915527344" text="Patient Name" />

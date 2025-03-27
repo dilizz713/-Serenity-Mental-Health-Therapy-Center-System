@@ -1,5 +1,12 @@
 package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.tm;
 
+import lombok.*;
+
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class TherapistTM {
    private String therapistId;
    private String name;
