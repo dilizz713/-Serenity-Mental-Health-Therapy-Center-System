@@ -123,6 +123,7 @@ public class PatientController implements Initializable {
         String address = txtAddress.getText();
         String email = txtEmail.getText();
         String mobile = txtMobile.getText();
+        String gender = rdbFemale.isSelected() ? "Female" : "Male";
 
         String namePattern = "^[A-Za-z ]+$";
         String nicPattern = "^[0-9]{9}[vVxX]$|^[0-9]{12}$";
@@ -185,6 +186,13 @@ public class PatientController implements Initializable {
             return;
         }
 
+        boolean isSaved = patientBO.savePatient(new PatientDTO(id , name , address , email , phone , nic , gender));
+        if (isSaved) {
+            refreshPage();
+            new Alert(Alert.AlertType.INFORMATION, "Patient saved successfully!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Failed to save patient!").show();
+        }
 
 
 
@@ -256,6 +264,7 @@ public class PatientController implements Initializable {
     }
 
     private void loadTableData() {
+
     }
 
     private void loadNextPatientId() {
