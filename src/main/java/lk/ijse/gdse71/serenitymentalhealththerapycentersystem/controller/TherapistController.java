@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.tm.TherapistTM;
 
 public class TherapistController {
 
@@ -24,22 +25,22 @@ public class TherapistController {
     private Button btnUpdate;
 
     @FXML
-    private TableColumn<?, ?> colProgram;
+    private TableColumn<TherapistTM, String> colProgram;
 
     @FXML
-    private TableColumn<?, ?> colTherapistAddress;
+    private TableColumn<TherapistTM, String> colTherapistAddress;
 
     @FXML
-    private TableColumn<?, ?> colTherapistId;
+    private TableColumn<TherapistTM, String> colTherapistId;
 
     @FXML
-    private TableColumn<?, ?> colTherapistMobile;
+    private TableColumn<TherapistTM, Integer> colTherapistMobile;
 
     @FXML
-    private TableColumn<?, ?> colTherapistName;
+    private TableColumn<TherapistTM, String> colTherapistName;
 
     @FXML
-    private TableColumn<?, ?> colTherapistNic;
+    private TableColumn<TherapistTM, String> colTherapistNic;
 
     @FXML
     private Label lblAddress;
@@ -66,7 +67,7 @@ public class TherapistController {
     private AnchorPane therapistAnchorPane;
 
     @FXML
-    private TableView<?> therapistTable;
+    private TableView<TherapistTM> therapistTable;
 
     @FXML
     private TextField txtAddress;

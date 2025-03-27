@@ -15,4 +15,5 @@ public class PaymentDTO {
     private double amount;
     private double remainingAmount;
     private String status;
+    private String sessionId;
 }

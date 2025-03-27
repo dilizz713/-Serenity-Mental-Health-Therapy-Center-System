@@ -9,6 +9,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.tm.RegistrationTM;
+
+import java.time.LocalDate;
 
 public class RegistrationController {
 
@@ -25,31 +28,31 @@ public class RegistrationController {
     private Button btnUpdate;
 
     @FXML
-    private ComboBox<?> cmbPatient;
+    private ComboBox cmbPatient;
 
     @FXML
-    private ComboBox<?> cmbProgram;
+    private ComboBox cmbProgram;
 
     @FXML
-    private TableColumn<?, ?> colAdvancePayment;
+    private TableColumn<RegistrationTM, Double> colAdvancePayment;
 
     @FXML
-    private TableColumn<?, ?> colDate;
+    private TableColumn<RegistrationTM, LocalDate> colDate;
 
     @FXML
-    private TableColumn<?, ?> colPatient;
+    private TableColumn<RegistrationTM, String> colPatient;
 
     @FXML
-    private TableColumn<?, ?> colPatientId;
+    private TableColumn<RegistrationTM, String> colPatientId;
 
     @FXML
-    private TableColumn<?, ?> colProgram;
+    private TableColumn<RegistrationTM, String> colProgram;
 
     @FXML
-    private TableColumn<?, ?> colProgramId;
+    private TableColumn<RegistrationTM, String> colProgramId;
 
     @FXML
-    private TableColumn<?, ?> colRegId;
+    private TableColumn<RegistrationTM, String> colRegId;
 
     @FXML
     private Label lblAdvancePayment;
@@ -70,7 +73,7 @@ public class RegistrationController {
     private AnchorPane registrationAnchorPane;
 
     @FXML
-    private TableView<?> registrationTable;
+    private TableView<RegistrationTM> registrationTable;
 
     @FXML
     private TextField txtAdvancePayment;

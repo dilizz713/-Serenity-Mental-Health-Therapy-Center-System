@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.config.FactoryConfiguration;
 
 import java.io.IOException;
 
@@ -19,6 +20,7 @@ public class AppInitializer extends Application {
     }
 
     public static void main(String[] args) {
+        FactoryConfiguration.getInstance().getSession();
         launch();
     }
 }

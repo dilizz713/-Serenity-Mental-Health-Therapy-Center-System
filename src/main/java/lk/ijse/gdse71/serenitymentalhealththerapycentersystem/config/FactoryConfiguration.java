@@ -17,13 +17,16 @@ public class FactoryConfiguration {
             Properties properties = new Properties();
             properties.load(getClass().getClassLoader().getResourceAsStream("hibernate.properties"));
 
-            Configuration configuration = new Configuration().configure()
+            Configuration configuration = new Configuration();
+            configuration.setProperties(properties);
+            configuration
                     .addAnnotatedClass(Patient.class)
                     .addAnnotatedClass(Therapist.class)
                     .addAnnotatedClass(TherapyProgram.class)
                     .addAnnotatedClass(Payment.class)
                     .addAnnotatedClass(TherapySession.class)
                     .addAnnotatedClass(Users.class)
+                    .addAnnotatedClass(Registration.class)
                     ;
             sessionFactory = configuration.buildSessionFactory();
         }catch (Exception e){

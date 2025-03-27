@@ -14,7 +14,6 @@ public class TherapySessionDTO {
     private String id;
     private String patientId;
     private String programId;
-    private String paymentId;
     private String therapistId;
     private String description;
     private LocalDate date;

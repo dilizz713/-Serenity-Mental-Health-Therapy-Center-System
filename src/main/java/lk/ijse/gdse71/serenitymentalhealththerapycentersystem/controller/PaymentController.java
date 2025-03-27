@@ -9,6 +9,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.tm.PaymentTM;
+
+import java.time.LocalDate;
 
 public class PaymentController {
 
@@ -28,28 +31,31 @@ public class PaymentController {
     private Button btnUpdate;
 
     @FXML
-    private TableColumn<?, ?> colAmount;
+    private TableColumn<PaymentTM, Double> colAmount;
 
     @FXML
-    private TableColumn<?, ?> colDate;
+    private TableColumn<PaymentTM, LocalDate> colDate;
 
     @FXML
-    private TableColumn<?, ?> colDesc;
+    private TableColumn<PaymentTM, String> colDesc;
 
     @FXML
-    private TableColumn<?, ?> colPatientName;
+    private TableColumn<PaymentTM, String> colPatientName;
 
     @FXML
-    private TableColumn<?, ?> colPaymentId;
+    private TableColumn<PaymentTM, String> colPaymentId;
 
     @FXML
-    private TableColumn<?, ?> colProgram;
+    private TableColumn<PaymentTM, String> colProgram;
 
     @FXML
-    private TableColumn<?, ?> colRemainingAmount;
+    private TableColumn<PaymentTM, Double> colRemainingAmount;
 
     @FXML
-    private TableColumn<?, ?> colStatus;
+    private TableColumn<PaymentTM, String> colSessionId;
+
+    @FXML
+    private TableColumn<PaymentTM, String> colStatus;
 
     @FXML
     private Label lblAmount;
@@ -73,22 +79,19 @@ public class PaymentController {
     private Label lblRemainingAmount;
 
     @FXML
+    private Label lblSessionId;
+
+    @FXML
     private AnchorPane paymentAnchorPane;
 
     @FXML
-    private TableView<?> paymentTable;
+    private TableView<PaymentTM> paymentTable;
 
     @FXML
     private RadioButton rdbDone;
 
     @FXML
     private RadioButton rdbOngoing;
-
-    @FXML
-    private TextField txtAmount;
-
-    @FXML
-    private TextField txtDesc;
 
     @FXML
     private TextField txtRemainingAmount;

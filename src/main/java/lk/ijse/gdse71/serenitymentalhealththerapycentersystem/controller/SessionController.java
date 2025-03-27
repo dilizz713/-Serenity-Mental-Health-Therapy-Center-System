@@ -11,6 +11,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.tm.TherapySessionTM;
+
+import java.time.LocalDate;
 
 public class SessionController {
 
@@ -30,43 +33,43 @@ public class SessionController {
     private Button btnView;
 
     @FXML
-    private ComboBox<?> cmbPatients;
+    private ComboBox cmbPatients;
 
     @FXML
-    private ComboBox<?> cmbPrograms;
+    private ComboBox cmbPrograms;
 
     @FXML
-    private ComboBox<?> cmbStatus;
+    private ComboBox cmbStatus;
 
     @FXML
-    private ComboBox<?> cmbTherapist;
+    private ComboBox cmbTherapist;
 
     @FXML
-    private TableColumn<?, ?> colDate;
+    private TableColumn<TherapySessionTM, LocalDate> colDate;
 
     @FXML
-    private TableColumn<?, ?> colPatientId;
+    private TableColumn<TherapySessionTM, String> colPatientId;
 
     @FXML
-    private TableColumn<?, ?> colPatinet;
+    private TableColumn<TherapySessionTM, String> colPatinet;
 
     @FXML
-    private TableColumn<?, ?> colProgram;
+    private TableColumn<TherapySessionTM, String> colProgram;
 
     @FXML
-    private TableColumn<?, ?> colProgramId;
+    private TableColumn<TherapySessionTM, String> colProgramId;
 
     @FXML
-    private TableColumn<?, ?> colSessionDate;
+    private TableColumn<TherapySessionTM, LocalDate> colSessionDate;
 
     @FXML
-    private TableColumn<?, ?> colSessionId;
+    private TableColumn<TherapySessionTM, String> colSessionId;
 
     @FXML
-    private TableColumn<?, ?> colTherapist;
+    private TableColumn<TherapySessionTM, String> colTherapist;
 
     @FXML
-    private TableColumn<?, ?> colTherapistId;
+    private TableColumn<TherapySessionTM, String> colTherapistId;
 
     @FXML
     private DatePicker datePickerForSession;
@@ -102,7 +105,7 @@ public class SessionController {
     private AnchorPane sessionAnchorPane;
 
     @FXML
-    private TableView<?> sessionTable;
+    private TableView<TherapySessionTM> sessionTable;
 
     @FXML
     private TextField txtAmount;

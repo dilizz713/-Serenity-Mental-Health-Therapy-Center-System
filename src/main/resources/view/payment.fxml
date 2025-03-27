@@ -22,12 +22,13 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="lblDate" prefHeight="18.0" prefWidth="543.0" text="Date" textFill="WHITE">
+                  <Label fx:id="lblSessionId" layoutX="110.0" layoutY="24.0" prefHeight="20.0" prefWidth="229.0" text="sessionId" textFill="#dbec1f" />
+                  <Label fx:id="lblDate" prefHeight="18.0" prefWidth="350.0" text="Date" textFill="WHITE">
                      <HBox.margin>
-                        <Insets left="20.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtSearch" alignment="CENTER" prefHeight="34.0" prefWidth="402.0" promptText="search" />
+                  <TextField fx:id="txtSearch" alignment="CENTER" prefHeight="34.0" prefWidth="298.0" promptText="search" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="932.0">
@@ -37,40 +38,38 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="lblProgram" layoutX="30.0" layoutY="24.0" prefHeight="18.0" prefWidth="312.0" text="Program" textFill="WHITE">
+                  <Label fx:id="lblProgram" layoutX="30.0" layoutY="24.0" prefHeight="18.0" prefWidth="229.0" text="Program" textFill="WHITE">
                      <HBox.margin>
-                        <Insets left="20.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
+                  <Label fx:id="lblAmount" prefHeight="18.0" prefWidth="350.0" text="Amount" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="lblRemainingAmount" prefHeight="18.0" prefWidth="190.0" text="Remaining Amount" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtRemainingAmount" prefHeight="26.0" prefWidth="183.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="56.0" prefHeight="46.0" prefWidth="932.0">
                <children>
-                  <Label fx:id="lblAmount" prefHeight="18.0" prefWidth="125.0" text="Amount" textFill="WHITE">
+                  <Label fx:id="lblDesc" prefHeight="18.0" prefWidth="398.0" text="Description" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtAmount" prefHeight="26.0" prefWidth="183.0" />
-                  <Label fx:id="lblRemainingAmount" layoutX="30.0" layoutY="24.0" prefHeight="18.0" prefWidth="190.0" text="Remaining Amount" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets left="350.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="txtRemainingAmount" layoutX="156.0" layoutY="20.0" prefHeight="26.0" prefWidth="183.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="103.0" prefHeight="46.0" prefWidth="932.0">
                <children>
-                  <Label fx:id="lblDesc" prefHeight="18.0" prefWidth="125.0" text="Description" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets left="100.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="txtDesc" prefHeight="26.0" prefWidth="243.0" />
                   <RadioButton fx:id="rdbOngoing" mnemonicParsing="false" prefHeight="31.0" prefWidth="122.0" text="Ongoing">
                      <HBox.margin>
-                        <Insets left="280.0" />
+                        <Insets left="90.0" />
                      </HBox.margin>
                   </RadioButton>
                   <RadioButton fx:id="rdbDone" mnemonicParsing="false" text="Completed" />
@@ -103,14 +102,15 @@
             </HBox>
             <TableView fx:id="paymentTable" prefHeight="408.0" prefWidth="1264.0">
                <columns>
-                  <TableColumn fx:id="colPaymentId" prefWidth="127.19997882843018" text="Id" />
-                  <TableColumn fx:id="colPatientName" prefWidth="161.6000213623047" text="Patient Name" />
-                  <TableColumn fx:id="colProgram" prefWidth="260.79998779296875" text="Program" />
-                  <TableColumn fx:id="colDesc" prefWidth="132.79998779296875" text="Description" />
-                  <TableColumn fx:id="colDate" prefWidth="131.20001220703125" text="Date" />
-                  <TableColumn fx:id="colAmount" prefWidth="173.5999755859375" text="Amount" />
-                  <TableColumn fx:id="colRemainingAmount" prefWidth="128.0" text="Remaining Amount" />
-                  <TableColumn fx:id="colStatus" prefWidth="150.4000244140625" text="Status" />
+                  <TableColumn fx:id="colPaymentId" prefWidth="105.59997272491455" text="Id" />
+                  <TableColumn fx:id="colSessionId" prefWidth="114.39996337890625" text="Session Id" />
+                  <TableColumn fx:id="colPatientName" prefWidth="173.6000518798828" text="Patient Name" />
+                  <TableColumn fx:id="colProgram" prefWidth="170.40005493164062" text="Program" />
+                  <TableColumn fx:id="colDesc" prefWidth="171.20001220703125" text="Description" />
+                  <TableColumn fx:id="colDate" prefWidth="122.39996337890625" text="Date" />
+                  <TableColumn fx:id="colAmount" prefWidth="138.39996337890625" text="Amount" />
+                  <TableColumn fx:id="colRemainingAmount" minWidth="0.0" prefWidth="155.2000732421875" text="Remaining Amount" />
+                  <TableColumn fx:id="colStatus" prefWidth="112.7999267578125" text="Status" />
                </columns>
             </TableView>
          </children>
