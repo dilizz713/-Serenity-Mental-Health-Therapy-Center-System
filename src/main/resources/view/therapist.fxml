@@ -31,7 +31,7 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtName" prefHeight="26.0" prefWidth="337.0" />
+                  <TextField fx:id="txtName" prefHeight="26.0" prefWidth="337.0" style="-fx-border-color: green; -fx-background-color: white; -fx-border-width: 2 2 2 2; -fx-border-radius: 5 5 5 5;" />
                   <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveBtnOnAction" text="Save">
                      <HBox.margin>
                         <Insets left="300.0" />
@@ -91,17 +91,23 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox prefHeight="26.0" prefWidth="338.0" />
+                  <ComboBox fx:id="cmbPrograms" onAction="#selectPrograms" prefHeight="26.0" prefWidth="338.0" promptText="Select Programs" />
+                  <Label fx:id="lblProgramId" layoutX="110.0" layoutY="26.0" prefHeight="18.0" prefWidth="201.0" text="Program Id" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
-            <TableView fx:id="therapistTable" prefHeight="350.0" prefWidth="1264.0">
+            <TableView fx:id="therapistTable" onMouseClicked="#clickedTable" prefHeight="350.0" prefWidth="1264.0">
                <columns>
                   <TableColumn fx:id="colTherapistId" prefWidth="168.7999849319458" text="Therapist Id" />
-                  <TableColumn fx:id="colTherapistName" prefWidth="249.59996032714844" text="Name" />
-                  <TableColumn fx:id="colTherapistAddress" minWidth="0.0" prefWidth="188.00006103515625" text="Address" />
-                  <TableColumn fx:id="colTherapistNic" prefWidth="168.80001831054688" text="NIC" />
-                  <TableColumn fx:id="colTherapistMobile" prefWidth="222.4000244140625" text="Mobile Number" />
-                  <TableColumn fx:id="colProgram" prefWidth="267.20001220703125" text="Program" />
+                  <TableColumn fx:id="colTherapistName" prefWidth="179.1999969482422" text="Name" />
+                  <TableColumn fx:id="colTherapistAddress" minWidth="0.0" prefWidth="201.60003662109375" text="Address" />
+                  <TableColumn fx:id="colTherapistNic" prefWidth="161.60003662109375" text="NIC" />
+                  <TableColumn fx:id="colTherapistMobile" prefWidth="188.79998779296875" text="Mobile Number" />
+                  <TableColumn fx:id="colProgram" prefWidth="240.7999267578125" text="Program" />
+                  <TableColumn fx:id="colProgramId" prefWidth="121.60009765625" text="Program Id" />
                </columns>
                <VBox.margin>
                   <Insets />

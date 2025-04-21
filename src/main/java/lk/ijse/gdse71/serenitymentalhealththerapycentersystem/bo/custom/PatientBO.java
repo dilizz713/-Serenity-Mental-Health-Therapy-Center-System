@@ -1,12 +1,11 @@
-package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo;
+package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom;
 
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PatientDTO;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-public interface PatientBO extends SuperBO{
+public interface PatientBO extends SuperBO {
    String getNextPatientId();
 
     boolean savePatient(PatientDTO patientDTO);

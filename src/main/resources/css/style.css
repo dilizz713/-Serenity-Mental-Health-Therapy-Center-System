@@ -41,7 +41,7 @@
     -fx-font-size: 16px;
 }
 #lblId,#lblName,#lblAddress,#lblNic,#lblEmail,#lblMobile,#lblProgram,#lblDuration,#lblFee,#lblPatient,#lblAdvancePayment,
-#lblDate,#lblSessionDate,#lblTherapist,#lblStatus,#lblDesc,#lblAmount,#lblRemainingAmount{
+#lblDate,#lblSessionDate,#lblTherapist,#lblStatus,#lblDesc,#lblAmount,#lblRemainingAmount,#lblProgramId{
     -fx-font-family: "sans-serif";
     -fx-font-size: 15px;
     -fx-font-weight: bold;
@@ -63,12 +63,12 @@
     -fx-padding: 5 5 5 5;
 }
 #txtName,#txtAddress,#txtNic,#txtEmail,#txtMobile,#txtDuration,#txtFee,#txtAdvancePayment,#txtDesc,
-#txtAmount,#txtRemainingAmount
+#txtAmount,#txtRemainingAmount,#cmbPrograms
 {
     -fx-background-color: white;
     -fx-background-radius: 5;
     -fx-border-radius: 5;
-    -fx-border-color: #87ea59;
+    -fx-border-color:white;
     -fx-border-width: 1px;
     -fx-font-size: 14px;
     -fx-padding:0 5 0 5;

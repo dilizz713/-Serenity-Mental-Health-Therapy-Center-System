@@ -9,15 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.PatientBO;
-import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.PatientBOImpl;
-import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.PatientDAO;
-import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.impl.PatientDAOImpl;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.PatientBO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.PatientBOImpl;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PatientDTO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.tm.PatientTM;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -266,8 +263,8 @@ public class PatientController implements Initializable {
         boolean hasErrors = false;
         StringBuilder errorMessage = new StringBuilder("Please correct the following errors:\n");
 
-        String errorStyle = "-fx-border-color: red; -fx-text-fill: white; -fx-background-color: transparent;";
-        String defaultStyle = "-fx-border-color: green; -fx-text-fill: white; -fx-background-color: transparent;";
+        String errorStyle = "-fx-border-color: red; -fx-text-fill: black; -fx-background-color: white;-fx-border-width: 2px;";
+        String defaultStyle = "-fx-border-color: green; -fx-text-fill: black; -fx-background-color: white;-fx-border-width: 2px;";
 
 
         if (name.isEmpty() || !name.matches(namePattern)) {
@@ -339,7 +336,7 @@ public class PatientController implements Initializable {
         colMobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
         colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
-        String defaultStyle = "-fx-border-color: black; -fx-text-fill: white; -fx-background-color: transparent;";
+        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         txtName.setStyle(defaultStyle);
         txtAddress.setStyle(defaultStyle);
@@ -377,6 +374,16 @@ public class PatientController implements Initializable {
         txtEmail.setText("");
         txtMobile.setText("");
         txtNic.setText("");
+        rdbMale.setSelected(false);
+        rdbFemale.setSelected(false);
+
+        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+
+        txtName.setStyle(defaultStyle);
+        txtAddress.setStyle(defaultStyle);
+        txtEmail.setStyle(defaultStyle);
+        txtMobile.setStyle(defaultStyle);
+        txtNic.setStyle(defaultStyle);
     }
 
     private void loadTableData() {

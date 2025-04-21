@@ -21,19 +21,19 @@ public class PatientDAOImpl implements PatientDAO {
         Session session = factoryConfiguration.getSession();
         String nextId = null;
 
-        try{
+        try {
             nextId = session
                     .createQuery("SELECT p.id FROM Patient p ORDER BY p.id DESC", String.class)
                     .setMaxResults(1)
                     .uniqueResult();
-        }finally {
+        } finally {
             session.close();
         }
 
-        if(nextId != null){
+        if (nextId != null) {
             int newId = Integer.parseInt(nextId.substring(1)) + 1;
             return String.format("P%03d", newId);
-        }else{
+        } else {
             return "P001";
         }
 

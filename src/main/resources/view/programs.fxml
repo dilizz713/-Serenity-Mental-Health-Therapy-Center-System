@@ -78,7 +78,7 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="programTable" prefHeight="398.0" prefWidth="1264.0">
+            <TableView fx:id="programTable" onMouseClicked="#clickedTable" prefHeight="398.0" prefWidth="1264.0">
               <columns>
                 <TableColumn fx:id="colProgramId" prefWidth="293.5999879837036" text="Program Id" />
                 <TableColumn fx:id="colProgramName" prefWidth="409.6000061035156" text="Program Name" />

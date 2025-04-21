@@ -1,5 +1,6 @@
-package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo;
+package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl;
 
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.PatientBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.PatientDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.impl.PatientDAOImpl;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PatientDTO;
@@ -7,7 +8,6 @@ import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.Patient;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class PatientBOImpl implements PatientBO {
     PatientDAO patientDAO = new PatientDAOImpl();

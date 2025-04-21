@@ -14,4 +14,5 @@ public class TherapistTM {
    private String nic;
    private int mobile;
    private String program;
+   private String programId;
 }
