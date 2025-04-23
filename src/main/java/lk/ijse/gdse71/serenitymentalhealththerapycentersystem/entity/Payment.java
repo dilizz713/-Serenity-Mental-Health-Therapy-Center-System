@@ -21,7 +21,6 @@ public class Payment {
     private double remainingAmount;
     private String status;
 
-
     @OneToOne
     @JoinColumn(name = "session_id")
     private TherapySession therapySession;

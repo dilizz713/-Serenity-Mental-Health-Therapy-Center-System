@@ -103,4 +103,24 @@ public class TherapistBOImpl implements TherapistBO {
         }
         return therapistDTOS;
     }
+
+    @Override
+    public ArrayList<String> getAllTherapistNames() {
+        return therapistDAO.getAllTherapistNames();
+    }
+
+    @Override
+    public String getTherapistNameById(String therapistId) {
+        return therapistDAO.getTherapistNameById(therapistId);
+    }
+
+    @Override
+    public ArrayList<String> getTherapistNamesByProgramId(String programId) {
+        return therapistDAO.getTherapistNameByProgramId(programId);
+    }
+
+    @Override
+    public String getTherapistIdByName(String selectedTherapistName) {
+        return therapistDAO.getTherapistIdByName(selectedTherapistName);
+    }
 }

@@ -1,19 +1,33 @@
 package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.PatientBO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.PaymentBO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.ProgramBO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.TherapySessionBO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.PatientBOImpl;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.PaymentBOImpl;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.ProgramBOImpl;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.TherapySessionBOImpl;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PaymentDTO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.TherapistDTO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.TherapySessionDTO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.tm.PaymentTM;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.tm.TherapistTM;
 
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class PaymentController {
+public class PaymentController implements Initializable {
 
     @FXML
     private Button btnDelete;
@@ -99,6 +113,11 @@ public class PaymentController {
     @FXML
     private TextField txtSearch;
 
+    PaymentBO paymentBO = new PaymentBOImpl();
+    TherapySessionBO therapySessionBO = new TherapySessionBOImpl();
+    PatientBO patientBO = new PatientBOImpl();
+    ProgramBO programBO = new ProgramBOImpl();
+
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
 
@@ -124,4 +143,92 @@ public class PaymentController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colPaymentId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colSessionId.setCellValueFactory(new PropertyValueFactory<>("sessionId"));
+        colPatientName.setCellValueFactory(new PropertyValueFactory<>("patientName"));
+        colProgram.setCellValueFactory(new PropertyValueFactory<>("program"));
+        colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        colRemainingAmount.setCellValueFactory(new PropertyValueFactory<>("remainingAmount"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+
+        txtRemainingAmount.setStyle(defaultStyle);
+
+        txtSearch.setOnAction(event -> {
+            try {
+                searchPayment();
+            } catch (Exception e) {
+                e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, "Error searching payment").show();
+            }
+        });
+
+        try {
+            refreshPage();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load payment id").show();
+        }
+
+    }
+
+    private void searchPayment() {
+    }
+
+    private void refreshPage() {
+        loadTableData();
+
+        btnDelete.setDisable(true);
+        btnUpdate.setDisable(true);
+
+        txtRemainingAmount.setText("");
+
+        String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
+
+        txtRemainingAmount.setStyle(defaultStyle);
+
+    }
+
+    private void loadTableData() {
+        ArrayList<PaymentDTO> paymentDTOS = paymentBO.getAllPayments();
+        ObservableList<PaymentTM> paymentTMS = FXCollections.observableArrayList();
+
+        for (PaymentDTO paymentDTO : paymentDTOS) {
+            TherapySessionDTO sessionDTO = therapySessionBO.getSessionById(paymentDTO.getSessionId());
+            String patientName = null;
+            String program = null;
+            String desc = null;
+
+            if (sessionDTO != null) {
+                patientName = patientBO.getPatientNameById(sessionDTO.getPatientId());
+                program = programBO.getProgramNameById(sessionDTO.getProgramId());
+                desc = sessionDTO.getDescription();
+            }
+
+            if (patientName == null) {
+                patientName = "Unknown Patient";
+            }
+
+            PaymentTM paymentTM = new PaymentTM(
+                    paymentDTO.getId(),
+                    paymentDTO.getSessionId(),
+                    patientName,
+                    program,
+                    desc,
+                    paymentDTO.getDate(),
+                    paymentDTO.getAmount(),
+                    paymentDTO.getRemainingAmount(),
+                    paymentDTO.getStatus()
+
+            );
+            paymentTMS.add(paymentTM);
+        }
+        paymentTable.setItems(paymentTMS);
+    }
 }

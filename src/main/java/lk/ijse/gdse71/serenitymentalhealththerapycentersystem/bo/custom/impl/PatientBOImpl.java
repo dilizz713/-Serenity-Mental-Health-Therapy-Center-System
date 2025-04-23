@@ -87,5 +87,20 @@ public class PatientBOImpl implements PatientBO {
         return patientDTOs;
     }
 
+    @Override
+    public ArrayList<String> getAllPatientNames() {
+        return patientDAO.getAllPatientNames();
+    }
+
+    @Override
+    public String getPatientNameById(String patientId) {
+        return patientDAO.getPatientNameById(patientId);
+    }
+
+    @Override
+    public String getPatientIdByName(String selectedPatientName) {
+        return patientDAO.getPatientIdByName(selectedPatientName);
+    }
+
 
 }

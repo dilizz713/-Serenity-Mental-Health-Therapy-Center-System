@@ -93,4 +93,14 @@ public class ProgramBOImpl implements ProgramBO {
     public String getProgramNameById(String programId) {
         return therapyProgramDAO.getProgramNameById(programId);
     }
+
+    @Override
+    public List<String> getRegisteredProgramsByPatientId(String patientId) {
+        return therapyProgramDAO.getRegisteredProgramsByPatientId(patientId);
+    }
+
+    @Override
+    public double getProgramFeeById(String programId) {
+        return therapyProgramDAO.getProgramFeeById(programId);
+    }
 }

@@ -13,8 +13,13 @@
    <children>
       <VBox fx:id="signupPageVBox" layoutX="220.0" layoutY="14.0" prefHeight="626.0" prefWidth="522.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="522.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="522.0">
                <children>
+                  <Label fx:id="lblUserId" prefHeight="18.0" prefWidth="179.0" text="userId" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
                   <Label fx:id="lblTopicSignup" text="Signup" textFill="#4cd162" />
                </children>
             </HBox>

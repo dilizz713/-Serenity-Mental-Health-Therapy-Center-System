@@ -31,17 +31,17 @@
     -fx-text-fill:  white;
 
 }
-#lblLoginPageTopic,#lblTopicSignup{
+#lblLoginPageTopic,#lblTopicSignup,#paymentTopic{
     -fx-font-family: "serif";
     -fx-font-size: 25px;
     -fx-font-weight: bold;
 }
-#lblUserName,#lblPassword,#lblFName,#lblLName,#lblUserName,#lblEmail,#lblPassword,#lblConfirmPW,#lblNewPw,#lblConfirmPW {
+#lblUserName,#lblPassword,#lblFName,#lblLName,#lblUserName,#lblEmail,#lblPassword,#lblConfirmPW,#lblNewPw,#lblConfirmPW,#lblUserId {
     -fx-font-family: "sans-serif";
     -fx-font-size: 16px;
 }
 #lblId,#lblName,#lblAddress,#lblNic,#lblEmail,#lblMobile,#lblProgram,#lblDuration,#lblFee,#lblPatient,#lblAdvancePayment,
-#lblDate,#lblSessionDate,#lblTherapist,#lblStatus,#lblDesc,#lblAmount,#lblRemainingAmount,#lblProgramId{
+#lblDate,#lblSessionDate,#lblTherapist,#lblStatus,#lblDesc,#lblAmount,#lblRemainingAmount,#lblProgramId,#lblPatientId,#lblTherapistId{
     -fx-font-family: "sans-serif";
     -fx-font-size: 15px;
     -fx-font-weight: bold;

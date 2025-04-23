@@ -1,20 +1,24 @@
 package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom;
 
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.CrudDAO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.Payment;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.Therapist;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public interface TherapistDAO {
-    List<Therapist> getAll();
+public interface TherapistDAO extends CrudDAO<Therapist> {
 
-    String getNextId();
+    ArrayList<String> getAllTherapistNames();
 
+    String getTherapistNameById(String therapistId);
 
-    boolean save(Therapist therapist);
+    ArrayList<String> getTherapistNameByProgramId(String programId);
 
-    boolean update(Therapist therapist);
+    Optional<Therapist> findByPK(String therapistId);
 
-    boolean delete(String therapistId);
+    String getTherapistIdByName(String selectedTherapistName);
 
-    List<Therapist> search(String searchText);
+    Therapist getTherapistId(String therapistId);
 }

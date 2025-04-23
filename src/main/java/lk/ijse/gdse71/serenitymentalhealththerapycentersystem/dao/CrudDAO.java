@@ -8,14 +8,13 @@ import java.util.List;
 public interface CrudDAO<T> extends SuperDAO{
 
     String getNextId();
-    boolean save(Patient patient);
+    boolean save(T entity);
 
-    List<Patient> getAll();
+    List<T> getAll();
 
-    boolean update(Patient patient);
+    boolean update(T entity);
 
-    boolean delete(String patientId);
+    boolean delete(String id);
 
-
-    List<Patient> search(String searchText);
+    List<T> search(String searchText);
 }

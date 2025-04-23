@@ -10,7 +10,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TherapistDAOImpl implements TherapistDAO {
     private final FactoryConfiguration factoryConfiguration = FactoryConfiguration.getInstance();
@@ -130,4 +132,113 @@ public class TherapistDAOImpl implements TherapistDAO {
     }
 
 
+    @Override
+    public ArrayList<String> getAllTherapistNames() {
+        Session session = factoryConfiguration.getSession();
+        ArrayList<String> therapistNames = new ArrayList<>();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+            List<String> names = session.createQuery("select th.name from Therapist th", String.class).getResultList();
+
+            therapistNames.addAll(names);
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return therapistNames;
+    }
+
+    @Override
+    public String getTherapistNameById(String therapistId) {
+        Session session = factoryConfiguration.getSession();
+        Transaction transaction = null;
+        String therapistName = null;
+
+        try{
+            transaction = session.beginTransaction();
+
+            Therapist therapist = session.get(Therapist.class, therapistId);
+
+            if(therapist != null) {
+                therapistName = therapist.getName();
+            }
+            transaction.commit();
+        }catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }finally {
+            session.close();
+        }
+        return therapistName;
+    }
+
+    @Override
+    public ArrayList<String> getTherapistNameByProgramId(String programId) {
+        Session session = factoryConfiguration.getSession();
+        ArrayList<String> therapistNames = new ArrayList<>();
+
+        try{
+            List<String> names = session.createQuery(
+                    "SELECT th.name FROM Therapist th WHERE th.therapyProgram.id = :programId", String.class)
+                    .setParameter("programId",programId)
+                    .getResultList();
+            therapistNames.addAll(names);
+        }finally {
+            session.close();
+        }
+        return therapistNames;
+    }
+
+    @Override
+    public Optional<Therapist> findByPK(String therapistId) {
+        Session session = factoryConfiguration.getSession();
+        Therapist therapist = session.get(Therapist.class, therapistId);
+        return Optional.ofNullable(therapist);
+    }
+
+    @Override
+    public String getTherapistIdByName(String selectedTherapistName) {
+        Session  session = factoryConfiguration.getSession();
+        Transaction transaction = null;
+        String therapistId = null;
+
+        try{
+            transaction = session.beginTransaction();
+            therapistId = session.createQuery("SELECT th.id FROM Therapist th WHERE th.name = :name",String.class)
+                    .setParameter("name", selectedTherapistName)
+                    .uniqueResult();
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return therapistId;
+    }
+
+    @Override
+    public Therapist getTherapistId(String therapistId) {
+        Session session = factoryConfiguration.getSession();
+        Therapist therapist = null;
+
+        try {
+            therapist = session.get(Therapist.class, therapistId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return therapist;
+    }
 }

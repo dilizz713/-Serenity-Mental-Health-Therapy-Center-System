@@ -37,13 +37,23 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="cmbPatient" prefHeight="26.0" prefWidth="222.0" />
-                  <Label fx:id="lblProgram" layoutX="30.0" layoutY="24.0" prefHeight="18.0" prefWidth="110.0" text="Program" textFill="WHITE">
+                  <ComboBox fx:id="cmbPatient" onAction="#selectPatient" prefHeight="26.0" prefWidth="222.0" />
+                  <Label fx:id="lblPatientId" layoutX="110.0" layoutY="24.0" prefHeight="18.0" prefWidth="122.0" text="Patient Id" textFill="WHITE">
                      <HBox.margin>
-                        <Insets left="300.0" />
+                        <Insets left="50.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="cmbProgram" layoutX="208.0" layoutY="20.0" prefHeight="26.0" prefWidth="282.0" />
+                  <Label fx:id="lblProgram" layoutX="30.0" layoutY="24.0" prefHeight="18.0" prefWidth="99.0" text="Program" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="cmbProgram" layoutX="208.0" layoutY="20.0" onAction="#selectProgram" prefHeight="26.0" prefWidth="222.0" />
+                  <Label fx:id="lblProgramId" layoutX="545.0" layoutY="24.0" prefHeight="18.0" prefWidth="122.0" text="Program Id" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="57.0" prefHeight="47.0" prefWidth="922.0">
@@ -80,7 +90,7 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="registrationTable" prefHeight="437.0" prefWidth="1264.0">
+            <TableView fx:id="registrationTable" onMouseClicked="#clickedTable" prefHeight="437.0" prefWidth="1264.0">
                <columns>
                   <TableColumn fx:id="colRegId" prefWidth="127.2000093460083" text="Registration Id" />
                   <TableColumn fx:id="colPatientId" prefWidth="143.99998474121094" text="Patient Id" />

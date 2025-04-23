@@ -23,4 +23,8 @@ public interface ProgramBO extends SuperBO {
     String getProgramIdByName(String selectedProgramName);
 
     String getProgramNameById(String programId);
+
+    List<String> getRegisteredProgramsByPatientId(String patientId);
+
+    double getProgramFeeById(String programId);
 }

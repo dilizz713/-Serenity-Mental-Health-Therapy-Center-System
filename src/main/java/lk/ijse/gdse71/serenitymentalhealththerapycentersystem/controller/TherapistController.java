@@ -147,11 +147,6 @@ public class TherapistController implements Initializable {
         String programName = (String) cmbPrograms.getValue();
         String programId = lblProgramId.getText();
 
-        if(programName == null){
-            new Alert(Alert.AlertType.ERROR, "Please select a program").show();
-            return;
-        }
-
         String namePattern = "^[A-Za-z ]+$";
         String nicPattern = "^[0-9]{9}[vVxX]$|^[0-9]{12}$";
         String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
@@ -161,6 +156,7 @@ public class TherapistController implements Initializable {
 
         String errorStyle = "-fx-border-color: red; -fx-text-fill: black; -fx-background-color: white;";
         String defaultStyle = "-fx-border-color: green; -fx-text-fill: black; -fx-background-color: white;";
+
         if (name.isEmpty() || !name.matches(namePattern)) {
             txtName.setStyle(errorStyle);
             errorMessage.append("- Name is empty or in an incorrect format\n");
@@ -200,6 +196,11 @@ public class TherapistController implements Initializable {
 
         if (hasErrors) {
             new Alert(Alert.AlertType.ERROR, errorMessage.toString()).show();
+            return;
+        }
+
+        if(programName == null){
+            new Alert(Alert.AlertType.ERROR, "Please select a program").show();
             return;
         }
 
@@ -325,7 +326,6 @@ public class TherapistController implements Initializable {
         txtNic.setStyle(defaultStyle);
         cmbPrograms.setStyle(defaultStyle);
 
-
         txtSearch.setOnAction(event -> {
             try {
                 searchTherapist();
@@ -398,7 +398,6 @@ public class TherapistController implements Initializable {
             therapistTMS.add(therapistTM);
         }
         therapistTable.setItems(therapistTMS);
-
 
     }
 

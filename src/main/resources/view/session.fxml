@@ -24,6 +24,11 @@
                      </HBox.margin>
                   </Label>
                   <Label fx:id="lblDate" alignment="CENTER" prefHeight="18.0" prefWidth="192.0" text="Date" textFill="WHITE" />
+                  <TextField fx:id="txtSearch" alignment="CENTER" prefHeight="34.0" prefWidth="379.0" promptText="serach">
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="914.0">
@@ -33,7 +38,12 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="cmbPatients" prefHeight="26.0" prefWidth="200.0" promptText="Select Patient" />
+                  <ComboBox fx:id="cmbPatients" onAction="#selectPatientName" prefHeight="26.0" prefWidth="200.0" promptText="Select Patient" />
+                  <Label fx:id="lblPatientId" layoutX="110.0" layoutY="23.0" prefHeight="18.0" prefWidth="114.0" text="Patient Id" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
                   <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveBtnOnAction" prefWidth="160.0" text="Book Appointment">
                      <HBox.margin>
                         <Insets left="150.0" />
@@ -48,10 +58,10 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker fx:id="datePickerForSession" prefHeight="26.0" prefWidth="200.0" />
+                  <DatePicker fx:id="datePickerForSession" onAction="#pickDate" prefHeight="26.0" prefWidth="200.0" />
                   <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateBtnOnAction" prefHeight="26.0" prefWidth="160.0" text="Reschedule">
                      <HBox.margin>
-                        <Insets left="150.0" />
+                        <Insets left="314.0" />
                      </HBox.margin>
                   </Button>
                </children>
@@ -63,7 +73,12 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="cmbPrograms" prefHeight="26.0" prefWidth="200.0" promptText="Select Program" />
+                  <ComboBox fx:id="cmbPrograms" onAction="#selectPRogramName" prefHeight="26.0" prefWidth="200.0" promptText="Select Program" />
+                  <Label fx:id="lblProgramId" prefHeight="18.0" prefWidth="114.0" text="Program Id" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
                   <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteBtnOnAction" prefWidth="160.0" text="Cancel Appointment" textFill="#26b468">
                      <HBox.margin>
                         <Insets left="150.0" />
@@ -78,8 +93,13 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="cmbTherapist" prefHeight="26.0" prefWidth="200.0" promptText="Select Therapist" />
-                  <Button fx:id="btnView" mnemonicParsing="false" onAction="#resetBtnOnAction" prefWidth="160.0" text="Appointment History">
+                  <ComboBox fx:id="cmbTherapist" onAction="#selectTherapist" prefHeight="26.0" prefWidth="200.0" promptText="Select Therapist" />
+                  <Label fx:id="lblTherapistId" prefHeight="18.0" prefWidth="114.0" text="Therapist Id" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetBtnOnAction" prefWidth="160.0" text="Reset">
                      <HBox.margin>
                         <Insets left="150.0" />
                      </HBox.margin>
@@ -94,17 +114,12 @@
                      </HBox.margin>
                   </Label>
                   <TextField fx:id="txtDesc" prefHeight="26.0" prefWidth="200.0" />
-                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetBtnOnAction" prefWidth="160.0" text="Reset">
-                     <HBox.margin>
-                        <Insets left="150.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="316.0" prefHeight="66.0" prefWidth="200.0" />
             <HBox prefHeight="370.0" prefWidth="1264.0">
                <children>
-                  <TableView fx:id="sessionTable" prefHeight="349.0" prefWidth="1010.0">
+                  <TableView fx:id="sessionTable" onMouseClicked="#clickedTable" prefHeight="349.0" prefWidth="1010.0">
                     <columns>
                       <TableColumn fx:id="colSessionId" prefWidth="75.0" text="Session Id" />
                       <TableColumn fx:id="colDate" prefWidth="90.4000244140625" text="Date" />
@@ -123,6 +138,11 @@
       </VBox>
       <VBox layoutX="978.0" layoutY="14.0" prefHeight="659.0" prefWidth="294.0">
          <children>
+            <HBox alignment="CENTER" prefHeight="90.0" prefWidth="294.0">
+               <children>
+                  <Label fx:id="paymentTopic" text="Payment" textFill="WHITE" />
+               </children>
+            </HBox>
             <VBox fx:id="paymentVBox" alignment="TOP_CENTER" prefHeight="570.0" prefWidth="294.0">
                <children>
                   <Label fx:id="lblPaymentId" text="PaymentId" textFill="#61e15d">
@@ -135,19 +155,24 @@
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="txtDesc" layoutX="64.0" layoutY="104.0" prefHeight="29.0" prefWidth="255.0" promptText="Description">
+                  <TextField fx:id="txtPaymentDesc" layoutX="64.0" layoutY="104.0" prefHeight="29.0" prefWidth="255.0" promptText="Description">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" top="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <ComboBox fx:id="cmbStatus" prefHeight="29.0" prefWidth="255.0" promptText="select status">
+                  <ComboBox fx:id="cmbStatus" onAction="#selectPaymentStatus" prefHeight="29.0" prefWidth="255.0" promptText="select status">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" top="20.0" />
                      </VBox.margin>
                   </ComboBox>
+                  <HBox alignment="CENTER" prefHeight="73.0" prefWidth="288.0">
+                     <children>
+                        <Label fx:id="lblRemainingAmount" alignment="CENTER" prefHeight="18.0" prefWidth="153.0" text="Remaining Amount" textFill="WHITE" />
+                     </children>
+                  </HBox>
                </children>
                <VBox.margin>
-                  <Insets top="50.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
             </VBox>
          </children>

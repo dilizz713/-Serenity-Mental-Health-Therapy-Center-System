@@ -36,6 +36,6 @@ public class TherapySession {
     @JoinColumn(name = "therapist_id")
     private Therapist therapist;
 
-   /* @OneToOne(mappedBy = "therapySession", cascade = CascadeType.ALL)
+    /*@OneToOne(mappedBy = "therapySession", cascade = CascadeType.ALL)
     private Payment payment;*/
 }

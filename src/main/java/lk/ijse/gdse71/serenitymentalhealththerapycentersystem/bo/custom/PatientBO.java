@@ -18,4 +18,10 @@ public interface PatientBO extends SuperBO {
 
 
  List<PatientDTO> searchPatient(String searchText);
+
+    ArrayList<String> getAllPatientNames();
+
+    String getPatientNameById(String patientId);
+
+    String getPatientIdByName(String selectedPatientName);
 }

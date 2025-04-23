@@ -12,6 +12,7 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TherapyProgramDAOImpl implements TherapyProgramDAO {
     private final FactoryConfiguration factoryConfiguration = FactoryConfiguration.getInstance();
@@ -170,13 +171,13 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
 
     @Override
     public String getProgramIdByName(String selectedProgramName) {
-        Session  session = factoryConfiguration.getSession();
+        Session session = factoryConfiguration.getSession();
         Transaction transaction = null;
         String programId = null;
 
-        try{
+        try {
             transaction = session.beginTransaction();
-            programId = session.createQuery("SELECT p.id FROM TherapyProgram p WHERE p.programName = :programName",String.class)
+            programId = session.createQuery("SELECT p.id FROM TherapyProgram p WHERE p.programName = :programName", String.class)
                     .setParameter("programName", selectedProgramName)
                     .uniqueResult();
 
@@ -198,23 +199,62 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
         Transaction transaction = null;
         String programName = null;
 
-        try{
+        try {
             transaction = session.beginTransaction();
 
             TherapyProgram program = session.get(TherapyProgram.class, programId);
 
-            if(program != null) {
+            if (program != null) {
                 programName = program.getProgramName();
             }
             transaction.commit();
-        }catch (Exception e) {
+        } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
-        }finally {
+        } finally {
             session.close();
         }
         return programName;
+    }
+
+    @Override
+    public Optional<TherapyProgram> findByPK(String programId) {
+        Session session = factoryConfiguration.getSession();
+        TherapyProgram program = session.get(TherapyProgram.class, programId);
+        return Optional.ofNullable(program);
+    }
+
+    @Override
+    public List<String> getRegisteredProgramsByPatientId(String patientId) {
+        Session session = factoryConfiguration.getSession();
+        List<String> programNames = new ArrayList<>();
+
+        try {
+            String hql = "SELECT p.programName " +
+                    "FROM Registration r " +
+                    "JOIN r.therapyProgram p " +
+                    "WHERE r.patient.id = :patientId";
+
+            Query query = session.createQuery(hql, String.class);
+            query.setParameter("patientId", patientId);
+
+            programNames = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return programNames;
+    }
+
+    @Override
+    public double getProgramFeeById(String programId) {
+        Session session = factoryConfiguration.getSession();
+
+        String hql = "SELECT p.fee FROM TherapyProgram p WHERE p.id = :programId";
+        Query<Double> query = session.createQuery(hql, Double.class);
+        query.setParameter("programId", programId);
+        return query.uniqueResult();
+
     }
 
 

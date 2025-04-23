@@ -77,7 +77,6 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="934.0">
                <children>
-                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveBtnOnAction" text="Save" />
                   <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateBtnOnAction" text="Update">
                      <HBox.margin>
                         <Insets left="50.0" />

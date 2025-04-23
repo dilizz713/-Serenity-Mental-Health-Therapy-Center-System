@@ -19,4 +19,12 @@ public interface TherapistBO extends SuperBO{
     boolean deleteTherapist(String therapistId);
 
     List<TherapistDTO> searchTherapist(String searchText);
+
+    ArrayList<String> getAllTherapistNames();
+
+    String getTherapistNameById(String therapistId);
+
+    ArrayList<String> getTherapistNamesByProgramId(String programId);
+
+    String getTherapistIdByName(String selectedTherapistName);
 }

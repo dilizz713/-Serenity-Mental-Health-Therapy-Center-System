@@ -5,6 +5,7 @@ import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.exception.NotFo
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.config.FactoryConfiguration;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.PatientDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.Patient;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.TherapyProgram;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -131,4 +132,99 @@ public class PatientDAOImpl implements PatientDAO {
         }
         return patients;
     }
+
+    @Override
+    public ArrayList<String> getAllPatientNames() {
+        Session session = factoryConfiguration.getSession();
+        ArrayList<String> patientNames = new ArrayList<>();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+            List<String> names = session.createQuery("select p.name from Patient p", String.class).getResultList();
+
+            patientNames.addAll(names);
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return patientNames;
+    }
+
+    @Override
+    public String getPatientNameById(String patientId) {
+        Session session = factoryConfiguration.getSession();
+        Transaction transaction = null;
+        String patientName = null;
+
+        try{
+            transaction = session.beginTransaction();
+
+            Patient patient = session.get(Patient.class, patientId);
+
+            if(patient != null) {
+                patientName = patient.getName();
+            }
+            transaction.commit();
+        }catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }finally {
+            session.close();
+        }
+        return patientName;
+    }
+
+    @Override
+    public String getPatientIdByName(String selectedPatientName) {
+        Session  session = factoryConfiguration.getSession();
+        Transaction transaction = null;
+        String patientId = null;
+
+        try{
+            transaction = session.beginTransaction();
+            patientId = session.createQuery("SELECT p.id FROM Patient p WHERE p.name = :name",String.class)
+                    .setParameter("name", selectedPatientName)
+                    .uniqueResult();
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return patientId;
+    }
+
+    @Override
+    public Patient getPatientId(String patientId) {
+        Session session = factoryConfiguration.getSession();
+        Patient patient = null;
+
+        try {
+            patient = session.get(Patient.class, patientId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return patient;
+    }
+
+    @Override
+    public Optional<Patient> findByPK(String patientId) {
+        Session session = factoryConfiguration.getSession();
+        Patient patient = session.get(Patient.class, patientId);
+        return Optional.ofNullable(patient);
+    }
+
+
 }
