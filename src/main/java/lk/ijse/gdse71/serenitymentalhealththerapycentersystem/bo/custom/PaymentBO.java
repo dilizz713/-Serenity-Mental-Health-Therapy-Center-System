@@ -1,11 +1,12 @@
 package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom;
 
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.SuperBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PaymentDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public interface PaymentBO extends SuperBO{
+public interface PaymentBO extends SuperBO {
     String getNextPaymentId();
 
     ArrayList<PaymentDTO> getAllPayments();

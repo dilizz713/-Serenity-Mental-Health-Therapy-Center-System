@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.BOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.PatientBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.PaymentBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.ProgramBO;
@@ -119,10 +120,10 @@ public class PaymentController implements Initializable {
     @FXML
     private TextField txtSearch;
 
-    PaymentBO paymentBO = new PaymentBOImpl();
-    TherapySessionBO therapySessionBO = new TherapySessionBOImpl();
-    PatientBO patientBO = new PatientBOImpl();
-    ProgramBO programBO = new ProgramBOImpl();
+    PaymentBO paymentBO = (PaymentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PAYMENT);
+    TherapySessionBO therapySessionBO = (TherapySessionBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.THERAPYSESSION);
+    PatientBO patientBO = (PatientBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PATIENT);
+    ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PROGRAM);
 
     @FXML
     void deleteBtnOnAction(ActionEvent event) {

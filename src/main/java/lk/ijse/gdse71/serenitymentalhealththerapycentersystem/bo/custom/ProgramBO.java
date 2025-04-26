@@ -1,5 +1,6 @@
 package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom;
 
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.SuperBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.TherapyProgramDTO;
 
 import java.util.ArrayList;

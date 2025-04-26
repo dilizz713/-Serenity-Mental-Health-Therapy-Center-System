@@ -1,6 +1,7 @@
 package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl;
 
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.RegistrationBO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.DAOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.PatientDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.RegistrationDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.TherapyProgramDAO;
@@ -18,9 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationBOImpl implements RegistrationBO {
-    RegistrationDAO registrationDAO = new RegistrationDAOImpl();
-    TherapyProgramDAO programDAO = new TherapyProgramDAOImpl();
-    PatientDAO patientDAO = new PatientDAOImpl();
+    RegistrationDAO registrationDAO = (RegistrationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.REGISTRATION);
+    TherapyProgramDAO programDAO = (TherapyProgramDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
+    PatientDAO patientDAO = (PatientDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PATIENT);
 
     @Override
     public ArrayList<RegistrationDTO> getAllRegistrations() {

@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.BOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.UserBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.UserBOImpl;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PatientDTO;
@@ -78,7 +79,7 @@ public class SignupController implements Initializable {
     @FXML
     private TextField txtUserName;
 
-    UserBO userBO = new UserBOImpl();
+    UserBO userBO = (UserBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER);
 
     @FXML
     void selectAdmin(ActionEvent event) {

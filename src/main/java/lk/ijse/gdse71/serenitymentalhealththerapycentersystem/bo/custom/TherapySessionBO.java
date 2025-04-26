@@ -1,10 +1,11 @@
 package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom;
 
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.SuperBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.TherapySessionDTO;
 
 import java.util.ArrayList;
 
-public interface TherapySessionBO extends SuperBO{
+public interface TherapySessionBO extends SuperBO {
     String getNextSessionId();
 
     ArrayList<TherapySessionDTO> getAllSessions();

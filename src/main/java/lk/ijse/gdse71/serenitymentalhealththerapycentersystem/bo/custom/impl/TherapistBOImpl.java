@@ -1,6 +1,7 @@
 package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl;
 
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.TherapistBO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.DAOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.TherapistDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.TherapyProgramDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.impl.TherapistDAOImpl;
@@ -16,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TherapistBOImpl implements TherapistBO {
-    TherapistDAO therapistDAO = new TherapistDAOImpl();
-    TherapyProgramDAO programDAO = new TherapyProgramDAOImpl();
+    TherapistDAO therapistDAO = (TherapistDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPIST);
+    TherapyProgramDAO programDAO = (TherapyProgramDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
 
     @Override
     public ArrayList<TherapistDTO> getAllTherapist() {

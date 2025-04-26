@@ -3,6 +3,7 @@ package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl;
 import javafx.scene.control.Alert;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.BookAppointmentBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.config.FactoryConfiguration;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.DAOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.*;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.impl.*;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PaymentDTO;
@@ -15,11 +16,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class BookAppoinmentBOImpl implements BookAppointmentBO {
-    TherapySessionDAO therapySessionDAO = new TherapySessionDAOImpl();
-    PaymentDAO paymentDAO = new PaymentDAOImpl();
-    TherapyProgramDAO therapyProgramDAO = new TherapyProgramDAOImpl();
-    PatientDAO patientDAO = new PatientDAOImpl();
-    TherapistDAO therapistDAO = new TherapistDAOImpl();
+    TherapySessionDAO therapySessionDAO = (TherapySessionDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPYSESSION);
+    PaymentDAO paymentDAO = (PaymentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PAYMENT);
+    TherapyProgramDAO therapyProgramDAO = (TherapyProgramDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
+    PatientDAO patientDAO = (PatientDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PATIENT);
+    TherapistDAO therapistDAO = (TherapistDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPIST);
 
     @Override
     public boolean saveSessionAndPayment(TherapySessionDTO therapySessionDTO, PaymentDTO paymentDTO) {

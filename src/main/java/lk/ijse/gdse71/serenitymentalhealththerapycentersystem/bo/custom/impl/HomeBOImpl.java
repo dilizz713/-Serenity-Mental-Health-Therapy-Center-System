@@ -2,6 +2,7 @@ package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl;
 
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.HomeBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.ProgramBO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.DAOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.PatientDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.TherapistDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.TherapyProgramDAO;
@@ -15,10 +16,10 @@ import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.TherapySess
 
 public class HomeBOImpl implements HomeBO {
 
-    PatientDAO patientDAO = new PatientDAOImpl();
-    TherapyProgramDAO therapyProgramDAO = new TherapyProgramDAOImpl();
-    TherapistDAO therapistDAO = new TherapistDAOImpl();
-    TherapySessionDAO therapySessionDAO = new TherapySessionDAOImpl();
+    PatientDAO patientDAO = (PatientDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PATIENT);
+    TherapyProgramDAO therapyProgramDAO = (TherapyProgramDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
+    TherapistDAO therapistDAO = (TherapistDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPIST);
+    TherapySessionDAO therapySessionDAO = (TherapySessionDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPYSESSION);
 
     @Override
     public int getPatientCount() {

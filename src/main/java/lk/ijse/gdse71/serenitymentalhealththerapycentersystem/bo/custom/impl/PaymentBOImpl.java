@@ -1,6 +1,7 @@
 package lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl;
 
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.PaymentBO;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.DAOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.PaymentDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.TherapySessionDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.impl.PaymentDAOImpl;
@@ -13,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentBOImpl implements PaymentBO {
-    PaymentDAO paymentDAO = new PaymentDAOImpl();
-    TherapySessionDAO therapySessionDAO = new TherapySessionDAOImpl();
+    PaymentDAO paymentDAO = (PaymentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PAYMENT);
+    TherapySessionDAO therapySessionDAO = (TherapySessionDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.THERAPYSESSION);
 
     @Override
     public String getNextPaymentId() {

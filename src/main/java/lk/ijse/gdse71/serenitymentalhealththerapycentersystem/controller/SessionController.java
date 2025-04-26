@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.BOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.*;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.*;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PaymentDTO;
@@ -141,13 +142,13 @@ public class SessionController implements Initializable {
     @FXML
     private TextField txtPaymentDesc;
 
-    ProgramBO programBO = new ProgramBOImpl();
-    PatientBO patientBO = new PatientBOImpl();
-    TherapistBO therapistBO = new TherapistBOImpl();
-    TherapySessionBO therapySessionBO = new TherapySessionBOImpl();
-    PaymentBO paymentBO = new PaymentBOImpl();
-    BookAppointmentBO bookAppointmentBO = new BookAppoinmentBOImpl();
-    RegistrationBO registrationBO = new RegistrationBOImpl();
+    ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PROGRAM);
+    PatientBO patientBO = (PatientBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PATIENT);
+    TherapistBO therapistBO = (TherapistBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.THERPIST);
+    TherapySessionBO therapySessionBO = (TherapySessionBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.THERAPYSESSION);
+    PaymentBO paymentBO = (PaymentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PAYMENT);
+    BookAppointmentBO bookAppointmentBO = (BookAppointmentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.BOOKAPPOINTMENT);
+    RegistrationBO registrationBO = (RegistrationBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.REGISTRATION);
 
     @FXML
     void clickedTable(MouseEvent event) {

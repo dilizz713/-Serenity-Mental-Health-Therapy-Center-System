@@ -18,7 +18,6 @@ public class Registration {
     private LocalDate date;
     private double advancePayment;
 
-
     /*private String patientId;
     private String programId;*/
 

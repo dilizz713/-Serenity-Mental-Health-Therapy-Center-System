@@ -7,6 +7,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.BOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.HomeBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.HomeBOImpl;
 
@@ -18,15 +19,13 @@ public class HomeController implements Initializable {
     @FXML
     private AnchorPane homeAnchorPane;
 
-
-
     @FXML
     private PieChart lblPieChart;
 
     @FXML
     private Label mainTopic;
 
-    HomeBO homeBO  = new HomeBOImpl();
+    HomeBO homeBO  = (HomeBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.HOME);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

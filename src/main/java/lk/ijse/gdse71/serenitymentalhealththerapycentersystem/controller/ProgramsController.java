@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.BOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.ProgramBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.ProgramBOImpl;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PatientDTO;
@@ -78,7 +79,7 @@ public class ProgramsController implements Initializable {
     @FXML
     private TextField txtSearch;
 
-    ProgramBO programBO = new ProgramBOImpl();
+    ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PROGRAM);
 
     @FXML
     void deleteBtnOnAction(ActionEvent event) {

@@ -27,8 +27,6 @@ public class Therapist {
     @JoinColumn(name = "program_id")
     private TherapyProgram therapyProgram;
 
-
-
    /* @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL)
     private List<TherapySession> therapySessions;*/
 }

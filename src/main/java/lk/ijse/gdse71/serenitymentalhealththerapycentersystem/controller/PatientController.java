@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.BOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.PatientBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.PatientBOImpl;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.PatientDTO;
@@ -103,7 +104,7 @@ public class PatientController implements Initializable {
     @FXML
     private TextField txtSearch;
 
-    PatientBO patientBO = new PatientBOImpl();
+    PatientBO patientBO = (PatientBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PATIENT);
 
     @FXML
     void deleteBtnOnAction(ActionEvent event) {

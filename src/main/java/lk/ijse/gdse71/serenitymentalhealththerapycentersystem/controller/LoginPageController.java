@@ -10,6 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.BOFactory;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.UserBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.impl.UserBOImpl;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.UsersDTO;
@@ -56,7 +57,8 @@ public class LoginPageController implements Initializable {
     @FXML
     private TextField txtUserName;
 
-    UserBO userBO = new UserBOImpl();
+    UserBO userBO = (UserBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER);
+
     DashboardController dashboardController = new DashboardController();
 
 
