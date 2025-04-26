@@ -67,12 +67,12 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="103.0" prefHeight="46.0" prefWidth="932.0">
                <children>
-                  <RadioButton fx:id="rdbOngoing" mnemonicParsing="false" prefHeight="31.0" prefWidth="122.0" text="Ongoing">
+                  <RadioButton fx:id="rdbOngoing" mnemonicParsing="false" onAction="#selectOngoing" prefHeight="31.0" prefWidth="122.0" text="Ongoing">
                      <HBox.margin>
                         <Insets left="90.0" />
                      </HBox.margin>
                   </RadioButton>
-                  <RadioButton fx:id="rdbDone" mnemonicParsing="false" text="Completed" />
+                  <RadioButton fx:id="rdbDone" mnemonicParsing="false" onAction="#selectCompleted" text="Completed" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="934.0">
@@ -92,14 +92,9 @@
                         <Insets left="50.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnInvoice" layoutX="653.0" layoutY="28.0" mnemonicParsing="false" onAction="#showInvoiceOnAction" text="Invoice">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
-            <TableView fx:id="paymentTable" prefHeight="408.0" prefWidth="1264.0">
+            <TableView fx:id="paymentTable" onMouseClicked="#clickedTable" prefHeight="408.0" prefWidth="1264.0">
                <columns>
                   <TableColumn fx:id="colPaymentId" prefWidth="105.59997272491455" text="Id" />
                   <TableColumn fx:id="colSessionId" prefWidth="114.39996337890625" text="Session Id" />

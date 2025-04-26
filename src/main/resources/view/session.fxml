@@ -73,7 +73,7 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="cmbPrograms" onAction="#selectPRogramName" prefHeight="26.0" prefWidth="200.0" promptText="Select Program" />
+                  <ComboBox fx:id="cmbProgram" onAction="#selectPRogramName" prefHeight="26.0" prefWidth="200.0" promptText="Select Program" />
                   <Label fx:id="lblProgramId" prefHeight="18.0" prefWidth="114.0" text="Program Id" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="50.0" />

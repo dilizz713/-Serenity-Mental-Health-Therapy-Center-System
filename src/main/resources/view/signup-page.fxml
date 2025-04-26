@@ -8,17 +8,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="signupAnchorPane" prefHeight="650.0" prefWidth="950.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller.SignupController">
+<AnchorPane fx:id="signupAnchorPane" prefHeight="675.0" prefWidth="1280.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller.SignupController">
    <children>
-      <VBox fx:id="signupPageVBox" layoutX="220.0" layoutY="14.0" prefHeight="626.0" prefWidth="522.0">
+      <VBox fx:id="signupPageVBox" alignment="TOP_CENTER" layoutX="220.0" layoutY="42.0" prefHeight="626.0" prefWidth="662.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="50.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="522.0">
                <children>
-                  <Label fx:id="lblUserId" prefHeight="18.0" prefWidth="179.0" text="userId" textFill="WHITE">
+                  <Label fx:id="lblUserId" prefHeight="20.0" prefWidth="319.0" text="userId" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                   </Label>
                   <Label fx:id="lblTopicSignup" text="Signup" textFill="#4cd162" />
                </children>
@@ -30,7 +34,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtFName" prefHeight="26.0" prefWidth="279.0" />
+                  <TextField fx:id="txtFName" prefHeight="34.0" prefWidth="522.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="80.0" prefHeight="71.0" prefWidth="522.0">
@@ -40,7 +44,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtLName" prefHeight="26.0" prefWidth="279.0" />
+                  <TextField fx:id="txtLName" prefHeight="34.0" prefWidth="522.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="152.0" prefHeight="71.0" prefWidth="522.0">
@@ -50,17 +54,17 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtUserName" prefHeight="26.0" prefWidth="279.0" />
+                  <TextField fx:id="txtUserName" prefHeight="26.0" prefWidth="522.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="223.0" prefHeight="71.0" prefWidth="522.0">
                <children>
-                  <Label fx:id="lblEmail" prefHeight="18.0" prefWidth="206.0" text="Email" textFill="WHITE">
+                  <Label fx:id="signupLblEmail" prefHeight="18.0" prefWidth="206.0" text="Email" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtEmail" prefHeight="26.0" prefWidth="279.0" />
+                  <TextField fx:id="txtSignupEmail" prefHeight="26.0" prefWidth="522.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="294.0" prefHeight="71.0" prefWidth="522.0">
@@ -70,7 +74,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtPW" prefHeight="26.0" prefWidth="279.0" />
+                  <TextField fx:id="txtPW" prefHeight="26.0" prefWidth="522.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="365.0" prefHeight="71.0" prefWidth="522.0">
@@ -80,7 +84,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtConfirmPW" prefHeight="26.0" prefWidth="279.0" />
+                  <TextField fx:id="txtConfirmPW" prefHeight="26.0" prefWidth="522.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="522.0">
@@ -104,6 +108,5 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="btnBack" layoutX="24.0" layoutY="16.0" mnemonicParsing="false" onAction="#backBtnOnAction" text="Back" />
    </children>
 </AnchorPane>

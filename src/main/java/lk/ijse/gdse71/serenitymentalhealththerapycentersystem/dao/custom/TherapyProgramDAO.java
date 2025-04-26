@@ -23,4 +23,6 @@ public interface TherapyProgramDAO  extends CrudDAO<TherapyProgram> {
     List<String> getRegisteredProgramsByPatientId(String patientId);
 
     double getProgramFeeById(String programId);
+
+    int getProgramCount();
 }

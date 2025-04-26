@@ -4,7 +4,6 @@ import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.bo.custom.UserBO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.UsersDAO;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dao.custom.impl.UsersDAOImpl;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.dto.UsersDTO;
-import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.Patient;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.Users;
 
 public class UserBOImpl implements UserBO {
@@ -24,8 +23,15 @@ public class UserBOImpl implements UserBO {
                 usersDTO.getEmail(),
                 usersDTO.getUsername(),
                 usersDTO.getPassword(),
-                usersDTO.getConfirmPassword(),
                 usersDTO.getRole()
         ));
     }
+
+    @Override
+    public Users findByUserName(String userName) {
+       return usersDAO.findByUserName(userName);
+
+    }
+
+
 }

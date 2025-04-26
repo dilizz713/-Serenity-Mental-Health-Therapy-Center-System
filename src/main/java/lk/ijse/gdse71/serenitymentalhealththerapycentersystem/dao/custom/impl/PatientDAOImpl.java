@@ -226,5 +226,20 @@ public class PatientDAOImpl implements PatientDAO {
         return Optional.ofNullable(patient);
     }
 
+    @Override
+    public int getPatientCount() {
+       Session session = factoryConfiguration.getSession();
+
+       try{
+           Long count = session.createQuery("SELECT COUNT(p) FROM Patient p", Long.class)
+                   .uniqueResult();
+           return count != null ? count.intValue() : 0;
+
+       }catch (Exception e) {
+           e.printStackTrace();
+       }
+       return 0;
+    }
+
 
 }

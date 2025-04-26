@@ -11,4 +11,10 @@ public interface PaymentBO extends SuperBO{
     ArrayList<PaymentDTO> getAllPayments();
 
     List<PaymentDTO> getPaymentsByPatientAndProgram(String patientId, String programId);
+
+    boolean paymentUpdate(PaymentDTO paymentDTO);
+
+    boolean deletePayment(String paymentId);
+
+    List<PaymentDTO> searchPayment(String searchText);
 }

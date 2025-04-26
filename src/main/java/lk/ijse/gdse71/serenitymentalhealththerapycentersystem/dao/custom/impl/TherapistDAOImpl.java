@@ -241,4 +241,19 @@ public class TherapistDAOImpl implements TherapistDAO {
         }
         return therapist;
     }
+
+    @Override
+    public int getTherapistCount() {
+        Session session = factoryConfiguration.getSession();
+
+        try{
+            Long count = session.createQuery("SELECT COUNT(th) FROM Therapist th", Long.class)
+                    .uniqueResult();
+            return count != null ? count.intValue() : 0;
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

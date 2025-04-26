@@ -5,16 +5,17 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="loginPageAnchorPane" prefHeight="650.0" prefWidth="950.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller.LoginPageController">
+<AnchorPane fx:id="loginPageAnchorPane" prefHeight="726.0" prefWidth="1280.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse71.serenitymentalhealththerapycentersystem.controller.LoginPageController">
    <children>
-      <VBox fx:id="loginVBox" alignment="TOP_CENTER" layoutX="225.0" layoutY="76.0" prefHeight="497.0" prefWidth="524.0" AnchorPane.bottomAnchor="76.39999999999998" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="201.20000000000005" AnchorPane.topAnchor="76.39999999999998">
+      <VBox fx:id="loginVBox" alignment="TOP_CENTER" layoutX="225.0" layoutY="76.0" prefHeight="497.0" prefWidth="500.0" AnchorPane.bottomAnchor="76.39999999999998" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="201.20000000000005" AnchorPane.topAnchor="76.39999999999998">
          <children>
-            <HBox alignment="CENTER" prefHeight="66.0" prefWidth="524.0">
+            <HBox alignment="CENTER" prefHeight="66.0" prefWidth="500.0">
                <children>
                   <Text fx:id="lblLoginPageTopic" fill="#55c968" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
                </children>
@@ -26,7 +27,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtUserName" prefHeight="26.0" prefWidth="300.0" />
+                  <TextField fx:id="txtUserName" prefHeight="34.0" prefWidth="606.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="76.0" prefHeight="82.0" prefWidth="524.0">
@@ -36,7 +37,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <PasswordField fx:id="txtPassword" prefHeight="26.0" prefWidth="300.0" />
+                  <PasswordField fx:id="txtPassword" onKeyTyped="#passwordKeyFieldType" prefHeight="34.0" prefWidth="608.0" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -44,23 +45,15 @@
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="75.0" prefWidth="524.0">
                <children>
-                  <Label fx:id="lblShown" prefHeight="18.0" prefWidth="201.0" text="shown" textFill="WHITE" />
-                  <Button fx:id="btnShowPw" mnemonicParsing="false" onAction="#clickBtnShowPassword" prefHeight="26.0" prefWidth="92.0" text="Show" textFill="WHITE">
+                  <Label fx:id="lblShown" prefHeight="18.0" prefWidth="506.0" text="shown" textFill="WHITE" />
+                  <ToggleButton fx:id="btnShowPw" mnemonicParsing="false" onAction="#clickBtnShowPassword" prefHeight="26.0" prefWidth="90.0" text="Show" textFill="WHITE">
                      <HBox.margin>
-                        <Insets right="25.0" />
+                        <Insets right="40.0" />
                      </HBox.margin>
-                  </Button>
+                  </ToggleButton>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="518.0">
-               <children>
-                  <Button fx:id="btnForgetPw" mnemonicParsing="false" onAction="#forgetPwOnAction" prefHeight="30.0" prefWidth="138.0" text="Forget Password?">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="518.0" />
             <HBox alignment="CENTER" prefHeight="89.0" prefWidth="518.0">
                <children>
                   <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="26.0" prefWidth="92.0" text="Login" />
@@ -68,6 +61,5 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="btnSignup" layoutX="790.0" layoutY="25.0" mnemonicParsing="false" onAction="#BtnSignupOnAction" prefHeight="26.0" prefWidth="92.0" text="Signup" />
    </children>
 </AnchorPane>

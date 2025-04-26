@@ -7,24 +7,26 @@ import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.Patient;
 import lk.ijse.gdse71.serenitymentalhealththerapycentersystem.entity.Users;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 public class UsersDAOImpl implements UsersDAO {
     private final FactoryConfiguration factoryConfiguration = FactoryConfiguration.getInstance();
     @Override
     public String getNextId() {
-        Session session = factoryConfiguration.getSession();
-        String nextId = null;
+       Session session = factoryConfiguration.getSession();
+       String nextId = null;
 
-        try {
-            nextId = session
-                    .createQuery("SELECT u.id FROM Users u ORDER BY u.id DESC", String.class)
-                    .setMaxResults(1)
-                    .uniqueResult();
-        } finally {
-            session.close();
-        }
+       try{
+           nextId = session
+                   .createQuery("SELECT u.id from Users u ORDER BY u.id DESC",String.class)
+                   .setMaxResults(1)
+                   .uniqueResult();
+       }finally{
+           session.close();
+       }
 
         if (nextId != null) {
             int newId = Integer.parseInt(nextId.substring(1)) + 1;
@@ -74,5 +76,63 @@ public class UsersDAOImpl implements UsersDAO {
     @Override
     public List<Users> search(String searchText) {
         return List.of();
+    }
+
+    @Override
+    public Users findByUserName(String userName) {
+        Session session = factoryConfiguration.getSession();
+        Transaction transaction = null;
+        Users users = null;
+
+        try{
+            transaction = session.beginTransaction();
+
+            Query<Users> query = session.createQuery("from Users where username = :userName", Users.class);
+            query.setParameter("userName", userName);
+
+            users = query.uniqueResult();
+           transaction.commit();
+
+        }catch (Exception e){
+            if(transaction != null){
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }finally {
+            if(session != null){
+                session.close();
+            }
+        }
+        return users;
+
+    }
+
+    @Override
+    public Users findByUserId(String id) {
+        Session session = factoryConfiguration.getSession();
+        Transaction transaction = null;
+        Users users = null;
+
+        try{
+            transaction = session.beginTransaction();
+
+            Query<Users> query = session.createQuery("from Users where id = :id", Users.class);
+            query.setParameter("id", id);
+
+            users = query.uniqueResult();
+            transaction.commit();
+
+        }catch (Exception e){
+            if(transaction != null){
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }finally {
+            if(session != null){
+                session.close();
+            }
+        }
+        return users;
+
     }
 }

@@ -21,4 +21,8 @@ public interface TherapistDAO extends CrudDAO<Therapist> {
     String getTherapistIdByName(String selectedTherapistName);
 
     Therapist getTherapistId(String therapistId);
+
+    int getTherapistCount();
+
+
 }

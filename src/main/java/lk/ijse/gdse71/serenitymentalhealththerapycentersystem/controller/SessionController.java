@@ -43,7 +43,7 @@ public class SessionController implements Initializable {
     private ComboBox cmbPatients;
 
     @FXML
-    private ComboBox cmbPrograms;
+    private ComboBox cmbProgram;
 
     @FXML
     private ComboBox cmbStatus;
@@ -159,10 +159,9 @@ public class SessionController implements Initializable {
             lblProgramId.setText(therapySessionTM.getProgramId());
             lblTherapistId.setText(therapySessionTM.getTherapistId());
             cmbPatients.setValue(therapySessionTM.getPatient());
-            cmbPrograms.setValue(therapySessionTM.getProgram());
+            cmbProgram.setValue(therapySessionTM.getProgram());
             cmbTherapist.setValue(therapySessionTM.getTherapist());
             datePickerForSession.setValue(therapySessionTM.getSessionDate());
-
         }
 
         lblRemainingAmount.setText("");
@@ -215,7 +214,7 @@ public class SessionController implements Initializable {
         LocalDate date = LocalDate.parse(lblDate.getText());
         LocalDate sessionDate = datePickerForSession.getValue();
 
-        String programName = (String) cmbPrograms.getValue();
+        String programName = (String) cmbProgram.getValue();
         String patientName = (String) cmbPatients.getValue();
         String therpistName = (String) cmbTherapist.getValue();
         String status = (String) cmbStatus.getValue();
@@ -292,7 +291,7 @@ public class SessionController implements Initializable {
     @FXML
     void selectPRogramName(ActionEvent event) {
         try{
-            String selectedProgramName = (String) cmbPrograms.getSelectionModel().getSelectedItem();
+            String selectedProgramName = (String) cmbProgram.getSelectionModel().getSelectedItem();
             if(selectedProgramName != null) {
                 String programId = programBO.getProgramIdByName(selectedProgramName);
                 lblProgramId.setText(programId);
@@ -322,8 +321,8 @@ public class SessionController implements Initializable {
                 lblPatientId.setText(patientId);
 
                 List<String> registeredPrograms = programBO.getRegisteredProgramsByPatientId(patientId);
-                cmbPrograms.setItems(FXCollections.observableArrayList(registeredPrograms));
-                cmbPrograms.getSelectionModel().clearSelection();
+                cmbProgram.setItems(FXCollections.observableArrayList(registeredPrograms));
+                cmbProgram.getSelectionModel().clearSelection();
                 lblProgramId.setText("");
 
                 cmbTherapist.getItems().clear();
@@ -343,16 +342,6 @@ public class SessionController implements Initializable {
         String programId = lblProgramId.getText();
 
         if(!patientId.isEmpty() && !programId.isEmpty()) {
-           /* try{
-                double programFee = programBO.getProgramFeeById(programId);
-                double advancePayment = registrationBO.getAdvancePaymentByPatientAndProgram(patientId , programId);
-                double remainingAmount = programFee - advancePayment;
-
-                lblRemainingAmount.setText(String.format("%.2f", remainingAmount));
-            }catch(Exception e){
-                e.printStackTrace();
-                new Alert(Alert.AlertType.ERROR, "Fail to calculate remaining amount").show();
-            }*/
 
             try{
                 double programFee = programBO.getProgramFeeById(programId);
@@ -365,13 +354,6 @@ public class SessionController implements Initializable {
                         .mapToDouble(PaymentDTO::getAmount)
                         .sum();
 
-                /*if(previousPayments.isEmpty()){
-                    double advancePayment = registrationBO.getAdvancePaymentByPatientAndProgram(patientId,programId);
-                    remainingAmount = programFee - advancePayment;
-                }else{
-                    PaymentDTO lastPayment = previousPayments.get(previousPayments.size() - 1);
-                    remainingAmount = lastPayment.getRemainingAmount();
-                }*/
                 remainingAmount = programFee - (advancePayment + totalPreviousPayments);
 
                 lblRemainingAmount.setText(String.format("%.2f", remainingAmount));
@@ -409,7 +391,7 @@ public class SessionController implements Initializable {
         LocalDate date = LocalDate.parse(lblDate.getText());
         LocalDate sessionDate = datePickerForSession.getValue();
 
-        String programName = (String) cmbPrograms.getValue();
+        String programName = (String) cmbProgram.getValue();
         String patientName = (String) cmbPatients.getValue();
         String therpistName = (String) cmbTherapist.getValue();
 
@@ -475,7 +457,7 @@ public class SessionController implements Initializable {
         String defaultStyle = "-fx-border-color: yellow; -fx-text-fill: black; -fx-background-color: white; -fx-border-width: 2px;";
 
         cmbPatients.setStyle(defaultStyle);
-        cmbPrograms.setStyle(defaultStyle);
+        cmbProgram.setStyle(defaultStyle);
         cmbTherapist.setStyle(defaultStyle);
         datePickerForSession.setStyle(defaultStyle);
         txtDesc.setStyle(defaultStyle);
@@ -524,12 +506,12 @@ public class SessionController implements Initializable {
         txtPaymentDesc.setText("");
         txtAmount.setText("");
 
-        cmbPrograms.getSelectionModel().clearSelection();
+        cmbProgram.getSelectionModel().clearSelection();
         cmbPatients.getSelectionModel().clearSelection();
         cmbTherapist.getSelectionModel().clearSelection();
         cmbStatus.getSelectionModel().clearSelection();
 
-        cmbPrograms.setValue(null);
+        cmbProgram.setValue(null);
         cmbPatients.setValue(null);
         cmbTherapist.setValue(null);
         cmbStatus.setValue(null);
@@ -543,7 +525,7 @@ public class SessionController implements Initializable {
         cmbStatus.setStyle(defaultStyle);
         cmbPatients.setStyle(defaultStyle);
         cmbTherapist.setStyle(defaultStyle);
-        cmbPrograms.setStyle(defaultStyle);
+        cmbProgram.setStyle(defaultStyle);
 
         lblRemainingAmount.setText("");
         txtAmount.setDisable(false);
@@ -600,7 +582,7 @@ public class SessionController implements Initializable {
 
     private void loadProgramNames() {
         ArrayList<String> programNames = programBO.getAllProgramsNames();
-        cmbPrograms.setItems(FXCollections.observableArrayList(programNames));
+        cmbProgram.setItems(FXCollections.observableArrayList(programNames));
     }
 
     private void searchSession() {

@@ -28,7 +28,7 @@ public class SignupController implements Initializable {
     private Label lblConfirmPW;
 
     @FXML
-    private Label lblEmail;
+    private Label signupLblEmail;
 
     @FXML
     private Label lblFName;
@@ -64,7 +64,7 @@ public class SignupController implements Initializable {
     private TextField txtConfirmPW;
 
     @FXML
-    private TextField txtEmail;
+    private TextField txtSignupEmail;
 
     @FXML
     private TextField txtFName;
@@ -81,11 +81,6 @@ public class SignupController implements Initializable {
     UserBO userBO = new UserBOImpl();
 
     @FXML
-    void backBtnOnAction(ActionEvent event) {
-        navigateTo("/view/login-page.fxml");
-    }
-
-    @FXML
     void selectAdmin(ActionEvent event) {
         rdBtnReceptionist.setSelected(false);
     }
@@ -100,7 +95,7 @@ public class SignupController implements Initializable {
         String id = lblUserId.getText();
         String fName = txtFName.getText();
         String lName = txtLName.getText();
-        String email = txtEmail.getText();
+        String email = txtSignupEmail.getText();
         String userName = txtUserName.getText();
         String password = txtPW.getText();
         String confirmPW = txtConfirmPW.getText();
@@ -134,12 +129,12 @@ public class SignupController implements Initializable {
         }
 
         if (email.isEmpty() || !email.matches(emailPattern)) {
-            txtEmail.setStyle(errorStyle);
+            txtSignupEmail.setStyle(errorStyle);
             errorMessage.append("- Email is empty or in an incorrect format\n");
             hasErrors = true;
 
         }else{
-            txtEmail.setStyle(defaultStyle);
+            txtSignupEmail.setStyle(defaultStyle);
         }
 
         if (userName.isEmpty()) {
@@ -167,16 +162,25 @@ public class SignupController implements Initializable {
             txtConfirmPW.setStyle(defaultStyle);
         }
 
+        if(!password.equals(confirmPW)){
+            txtConfirmPW.setStyle(errorStyle);
+            errorMessage.append("- Confirm password does not match to the password\n");
+            hasErrors = true;
+        }
+
 
         if (hasErrors) {
             new Alert(Alert.AlertType.ERROR, errorMessage.toString()).show();
             return;
         }
 
-        boolean isSaved = userBO.saveUser(new UsersDTO(id,fName,lName,email,userName,password,confirmPW,role));
+        String hashedPassword = org.mindrot.jbcrypt.BCrypt.hashpw(password, org.mindrot.jbcrypt.BCrypt.gensalt());
+
+        boolean isSaved = userBO.saveUser(new UsersDTO(id,fName,lName,email,userName,hashedPassword,role));
         if (isSaved) {
             refreshPage();
             new Alert(Alert.AlertType.INFORMATION, "User signup successfully!").show();
+            navigateTo("/view/login-page.fxml");
         } else {
             new Alert(Alert.AlertType.ERROR, "Failed").show();
         }
@@ -200,7 +204,7 @@ public class SignupController implements Initializable {
 
         txtFName.setStyle(defaultStyle);
         txtLName.setStyle(defaultStyle);
-        txtEmail.setStyle(defaultStyle);
+        txtSignupEmail.setStyle(defaultStyle);
         txtUserName.setStyle(defaultStyle);
         txtPW.setStyle(defaultStyle);
         txtConfirmPW.setStyle(defaultStyle);
@@ -219,7 +223,7 @@ public class SignupController implements Initializable {
 
         txtFName.setText("");
         txtLName.setText("");
-        txtEmail.setText("");
+        txtSignupEmail.setText("");
         txtUserName.setText("");
         txtPW.setText("");
         txtConfirmPW.setText("");
@@ -230,7 +234,7 @@ public class SignupController implements Initializable {
 
         txtFName.setStyle(defaultStyle);
         txtLName.setStyle(defaultStyle);
-        txtEmail.setStyle(defaultStyle);
+        txtSignupEmail.setStyle(defaultStyle);
         txtUserName.setStyle(defaultStyle);
         txtPW.setStyle(defaultStyle);
         txtConfirmPW.setStyle(defaultStyle);

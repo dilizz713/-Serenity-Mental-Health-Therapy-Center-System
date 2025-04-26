@@ -14,4 +14,14 @@ public interface TherapySessionDAO extends CrudDAO<TherapySession> {
     boolean saveSessionWithPayment(Session session, TherapySession therapySession);
 
     TherapySessionDTO getSessionById(String sessionId);
+
+    TherapySession getSessionId(String sessionId);
+
+    int getSessionCountForToday();
+
+    String getPatientNameBySessionId(String sessionId);
+
+    String getProgramNameBySessionId(String sessionId);
+
+    String getDescriptionBySessionId(String sessionId);
 }

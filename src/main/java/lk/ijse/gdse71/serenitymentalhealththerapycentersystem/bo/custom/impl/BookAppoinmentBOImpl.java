@@ -30,19 +30,6 @@ public class BookAppoinmentBOImpl implements BookAppointmentBO {
         System.out.println(paymentDTO.getId());
 
         try{
-
-//            Optional<TherapySession> optionalTherapySession = therapySessionDAO.findByPK(sessionId);
-//            if(optionalTherapySession.isPresent()){
-//                transaction.rollback();
-//                return false;
-//            }
-
-//            Optional<Payment> optionalPayment = paymentDAO.findByPK(paymentId);
-//            if(optionalPayment.isPresent()){
-//                transaction.rollback();
-//                return false;
-//            }
-
             String programId = therapySessionDTO.getProgramId();
 
             Optional<TherapyProgram> optionalTherapyProgram = therapyProgramDAO.findByPK(programId);
